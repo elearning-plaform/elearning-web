@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Inter:wght@400;500;700&display=swap');
+
+:root {
+  --typeface-inconsolata: 'Inconsolata', sans-serif;
+  --typeface-inter: 'Inter', monospace;
+
+  --main: #000;
+  --white: #fff;
+  --white-light: #eee;
+  --gray-light: #d3d3d3;
+  --silver: #c0c0c0;
+  --gray: #808080;
+
+  --background: radial-gradient(circle, #d6d6d6 37%, #bbb 71%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--typeface-inter);
+}
