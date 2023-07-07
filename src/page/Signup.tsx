@@ -89,7 +89,7 @@ const Signup = () => {
                     type="submit"
                     onClick={onSubmit}
                 >
-                    Sign up
+                    Hesap Aç
                 </button>
 
                 <p>Üye olarak Gogo Lingua Kullanım Şartları ve Gizlilik Politikasını
