@@ -31,7 +31,7 @@ body {
 .age-restrictions {
     display: flex;
     text-align: left;
-    margin: 20px auto 20px;
+    margin: 10px auto 15px;
     font-size: 0.8rem;
 
     input {
@@ -41,10 +41,11 @@ body {
 
 p {
     font-size: 0.8rem;
+    margin-bottom: 10px;
 }
 
 .form-submit {
-    margin: 35px 15px 35px 15px;
+    margin: 20px 15px 35px 15px;
     padding: 15px;
     border-radius: 10px;
     color: white;

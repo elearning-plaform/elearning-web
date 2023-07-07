@@ -75,6 +75,15 @@ const Signup = () => {
 
                 <p>18 yaşından küçükseniz lütfen velinizin email adresini giriniz.</p>
 
+                <input
+                    className="form-input"
+                    type="email"
+                    // value={email}
+                    // onChange={(e) => setEmail(e.target.value)}
+                    required
+                    placeholder="Veli emai"
+                />
+
                 <button
                     className="form-submit"
                     type="submit"
