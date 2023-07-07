@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/elearning-web/static/css/main.f5550913.css",
-    "main.js": "/elearning-web/static/js/main.2227607e.js",
+    "main.js": "/elearning-web/static/js/main.418779ee.js",
     "index.html": "/elearning-web/index.html",
     "main.f5550913.css.map": "/elearning-web/static/css/main.f5550913.css.map",
-    "main.2227607e.js.map": "/elearning-web/static/js/main.2227607e.js.map"
+    "main.418779ee.js.map": "/elearning-web/static/js/main.418779ee.js.map"
   },
   "entrypoints": [
     "static/css/main.f5550913.css",
-    "static/js/main.2227607e.js"
+    "static/js/main.418779ee.js"
   ]
 }
