@@ -19,6 +19,7 @@ body {
     max-width: 600px;
     width: 80%;
     padding: 30px;
+    border-radius: 10px;
 }
 
 .form-input {
@@ -26,6 +27,8 @@ body {
     border: 1px solid var(--main);
     border-radius: 5px;
     margin: 15px;
+    border: none;
+    box-shadow: 0 0 1px var(--main);
 }
 
 .age-restrictions {
@@ -33,15 +36,19 @@ body {
     text-align: left;
     margin: 10px auto 15px;
     font-size: 0.8rem;
+    max-width: 80%;
 
     input {
         margin-right: 10px;
+        // margin-left: 25px;
     }
 }
 
 p {
     font-size: 0.8rem;
     margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 30px;
 }
 
 .form-submit {

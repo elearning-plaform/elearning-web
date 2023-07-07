@@ -1,13 +1,13 @@
 import '../assets/sass/Login.scss'
-import { useState } from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase';
+import { useState } from 'react'
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '../firebase'
 import { NavLink, useNavigate } from 'react-router-dom'
 
 const Login = () => {
-    const navigate = useNavigate();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const navigate = useNavigate()
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
 
     const onLogin = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
@@ -20,7 +20,7 @@ const Login = () => {
                     return
                 }
                 navigate("/home")
-                localStorage.setItem('token', JSON.stringify(user.getIdToken));
+                localStorage.setItem('token', JSON.stringify(user.getIdToken))
             })
             .catch((error) => {
                 const errorCode = error.code;
