@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const Home = () => {
     const navigate = useNavigate();
 
+    // KEEP USER LOGGED IN
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (!token) {
@@ -14,6 +15,7 @@ const Home = () => {
         }
     }, [navigate])
 
+    // LOGOUT
     const handleLogout = () => {
         signOut(auth).then(() => {
             // Sign-out successful.

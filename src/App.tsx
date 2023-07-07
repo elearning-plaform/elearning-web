@@ -8,8 +8,6 @@ import { Routes, Route } from 'react-router-dom';
 function App() {
   return (
     <Router>
-      <div>
-        <section>
           <Routes>
             <Route path="/home" element={<Home />} />
             <Route path="/signup" element={<Signup />} />
@@ -17,8 +15,6 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/elearning-web" element={<Login />} />
           </Routes>
-        </section>
-      </div>
     </Router>
   );
 }

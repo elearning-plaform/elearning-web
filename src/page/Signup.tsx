@@ -33,57 +33,66 @@ const Signup = () => {
     }
 
     return (
-        <main >
-            <section>
-                <div>
-                    <div>
-                        <h1> Sign Up </h1>
-                        <form>
-                            <div>
-                                <label htmlFor="email-address">
-                                    Email address
-                                </label>
-                                <input
-                                    type="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    required
-                                    placeholder="Email address"
-                                />
-                            </div>
 
-                            <div>
-                                <label htmlFor="password">
-                                    Password
-                                </label>
-                                <input
-                                    type="password"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    required
-                                    placeholder="Password"
-                                />
-                            </div>
+        <div className="form-container">
+            <form className="form">
+                <h3> Profil oluştur </h3>
 
-                            <button
-                                type="submit"
-                                onClick={onSubmit}
-                            >
-                                Sign up
-                            </button>
-
-                        </form>
-
-                        <p>
-                            Already have an account?{' '}
-                            <NavLink to="/login" >
-                                Sign in
-                            </NavLink>
-                        </p>
-                    </div>
+                <input
+                    className="form-input"
+                    type="username"
+                    // value={username}
+                    // onChange={(e) => setUserName(e.target.value)}
+                    required
+                    placeholder="Kullanıcı adı"
+                />
+                <input
+                    className="form-input"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    placeholder="Email"
+                />
+                <input
+                    className="form-input"
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                    placeholder="Şifre"
+                />
+                <div className="age-restrictions">
+                    <input
+                        id='email-okay'
+                        type="checkbox"
+                        name="years-old"
+                    // onChange={handleChange}
+                    // checked={formData.joinedNewsletter}
+                    />
+                    <label htmlFor="okayToEmail">En az 18 yaşında olduğumu onaylıyorum</label>
                 </div>
-            </section>
-        </main>
+
+                <p>18 yaşından küçükseniz lütfen velinizin email adresini giriniz.</p>
+
+                <button
+                    className="form-submit"
+                    type="submit"
+                    onClick={onSubmit}
+                >
+                    Sign up
+                </button>
+
+                <p>Üye olarak Gogo Lingua Kullanım Şartları ve Gizlilik Politikasını
+                    kabul etmiş olursunuz.</p>
+            </form>
+
+            <p className='signin-link'>
+                Already have an account?{' '}
+                <NavLink to="/login"> Sign in</NavLink>
+            </p>
+
+        </div>
     )
 }
 
