@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../firebase'
 import { NavLink, useNavigate } from 'react-router-dom'
+import toast, { Toaster } from 'react-hot-toast';
 
 const Login = () => {
     const navigate = useNavigate()
@@ -16,7 +17,7 @@ const Login = () => {
                 // Signed in
                 const user = userCredential.user;
                 if (user.emailVerified === false) {
-                    alert("Please verify your email first")
+                    toast.error("Please verify your email first")
                     return
                 }
                 navigate("/home")
@@ -25,7 +26,28 @@ const Login = () => {
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                console.log(errorCode, errorMessage)
+
+                switch (errorCode) {
+                    case 'auth/invalid-email':
+                        toast.error("Invalid email address");
+                        console.log(errorMessage);
+                        break;
+                    case 'auth/missing-password':
+                        toast.error(`Missing password`);
+                        console.log(errorMessage);
+                        break;
+                    case 'auth/user-not-found':
+                        toast.error(`Email not found`);
+                        console.log(errorMessage);
+                        break;
+                    case 'auth/wrong-password':
+                        toast.error('Wrong password');
+                        console.log(errorMessage);
+                        break;
+                    default:
+                        console.log(errorMessage);
+                        break;
+                }
             });
 
     }
@@ -33,6 +55,7 @@ const Login = () => {
     return (
 
         <div className="form-container">
+            <Toaster />
             <form className="form">
                 <h1> Login </h1>
 
@@ -60,10 +83,10 @@ const Login = () => {
                 > Login
                 </button>
             </form>
-                <p className="signin-link"
-                >No account yet? {' '}
-                    <NavLink to="/signup"> Sign up </NavLink>
-                </p>
+            <p className="signin-link"
+            >No account yet? {' '}
+                <NavLink to="/signup"> Sign up </NavLink>
+            </p>
         </div >
 
     )

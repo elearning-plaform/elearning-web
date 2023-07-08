@@ -1,3 +1,5 @@
+$assetPath :"../assets/images";
+
 body {
     // background-color: rgb(51, 83, 153);
     font-family: --typeface-inter;
@@ -40,7 +42,6 @@ body {
 
     input {
         margin-right: 10px;
-        // margin-left: 25px;
     }
 }
 
@@ -68,6 +69,24 @@ p {
     margin-top: 20px;
 }
 
+.toggle-password {
+    width: 20px;
+    margin-left: -45px;
+    cursor: pointer;
+}
+
+.password{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 600px;
+    width: 100%;
+}
+
+.form-password{
+    width: 94%;
+}
+
 @media (max-width: 320px) {
     .form-container {
         margin-top: 0;
@@ -76,5 +95,9 @@ p {
     .form {
         max-width: 100%;
         width: 100%;
+    }
+
+    .form-password{
+        width: 88%;
     }
 }
