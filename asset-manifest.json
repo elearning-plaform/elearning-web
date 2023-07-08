@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/elearning-web/static/css/main.2327ce29.css",
-    "main.js": "/elearning-web/static/js/main.c35b5290.js",
+    "main.css": "/elearning-web/static/css/main.4d844f6d.css",
+    "main.js": "/elearning-web/static/js/main.a126f2b4.js",
+    "static/media/eye-svgrepo-com.svg": "/elearning-web/static/media/eye-svgrepo-com.a6b9dd4c404a889007bd40a2b6a6b2b0.svg",
     "index.html": "/elearning-web/index.html",
-    "main.2327ce29.css.map": "/elearning-web/static/css/main.2327ce29.css.map",
-    "main.c35b5290.js.map": "/elearning-web/static/js/main.c35b5290.js.map"
+    "main.4d844f6d.css.map": "/elearning-web/static/css/main.4d844f6d.css.map",
+    "main.a126f2b4.js.map": "/elearning-web/static/js/main.a126f2b4.js.map"
   },
   "entrypoints": [
-    "static/css/main.2327ce29.css",
-    "static/js/main.c35b5290.js"
+    "static/css/main.4d844f6d.css",
+    "static/js/main.a126f2b4.js"
   ]
 }
