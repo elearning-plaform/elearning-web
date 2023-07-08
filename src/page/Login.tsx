@@ -33,15 +33,15 @@ const Login = () => {
                         console.log(errorMessage);
                         break;
                     case 'auth/missing-password':
-                        toast.error(`Missing password`);
+                        toast.error("Missing password");
                         console.log(errorMessage);
                         break;
                     case 'auth/user-not-found':
-                        toast.error(`Email not found`);
+                        toast.error("Email not found");
                         console.log(errorMessage);
                         break;
                     case 'auth/wrong-password':
-                        toast.error('Wrong password');
+                        toast.error("Wrong password");
                         console.log(errorMessage);
                         break;
                     default:

@@ -26,7 +26,22 @@ const Signup = () => {
     const onSubmit = async (e: { preventDefault: () => void; }) => {
         e.preventDefault()
 
-        if (parentConfirmation === email) {
+        if (username === '') {
+            toast.error("Please fill in username field")
+            return
+        } else if (email === '') {
+            toast.error("Please fill in email field")
+            return
+        } else if (password === '') {
+            toast.error("Please fill in password field")
+            return
+        } else if (parentConfirmation === '' && isChecked === false) {
+            toast.error("Please enter your parent's email")
+            return
+        } else if (parentConfirmation !== '' && isChecked === false) {
+            toast.error("Please enter your parent's email")
+            return
+        } else if (parentConfirmation !== '' && parentConfirmation === email) {
             toast.error("Parent's email cannot be the same as yours")
             return
         }
@@ -46,19 +61,19 @@ const Signup = () => {
 
                 switch (errorCode) {
                     case 'auth/email-already-in-use':
-                        toast.error(`Email address is already in use: \n ${email}`);
+                        toast.error("Email address is already in use");
                         console.log(errorMessage);
                         break;
                     case 'auth/invalid-email':
-                        toast.error(`Email address is invalid: \n ${email}`);
+                        toast.error("Invalid email address");
                         console.log(errorMessage);
                         break;
                     case 'auth/operation-not-allowed':
-                        toast.error(`Error during sign up.`);
+                        toast.error("Error during sign up");
                         console.log(errorMessage);
                         break;
                     case 'auth/weak-password':
-                        toast.error('Password is not strong enough. Add additional characters including special characters and numbers.');
+                        toast.error("Password is less than 6 characters");
                         console.log(errorMessage);
                         break;
                     default:
@@ -73,6 +88,7 @@ const Signup = () => {
         <div className="form-container">
             <Toaster />
             <form
+                noValidate
                 className="form"
                 onSubmit={onSubmit}
             >
@@ -109,6 +125,7 @@ const Signup = () => {
                     />
                     <img
                         src={eye}
+                        alt='eye'
                         className='toggle-password'
                         onClick={togglePasswordVisibility}
                     />
