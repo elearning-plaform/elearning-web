@@ -99,7 +99,7 @@ const Login = () => {
                     onClick={onLogin}
                 > Login
                 </button>
-                <p><a href="/forgot-password">Forgot password?</a></p>
+                <p><NavLink to="/forgot-password">Forgot password?</NavLink></p>
             </form>
             <p className="signin-link">No account yet?
                 <NavLink to="/signup"> Sign up </NavLink>
