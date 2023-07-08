@@ -2,6 +2,7 @@ import './assets/sass/App.scss';
 import Home from './page/Home';
 import Signup from './page/Signup';
 import Login from './page/Login';
+import ForgotPassword from './page/ForgotPassword';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
 
@@ -14,6 +15,7 @@ function App() {
             <Route path="/" element={<Login />} />
             <Route path="/login" element={<Login />} />
             <Route path="/elearning-web" element={<Login />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
           </Routes>
     </Router>
   );
