@@ -38,9 +38,6 @@ const Signup = () => {
         } else if (parentConfirmation === '' && isChecked === false) {
             toast.error("Please enter your parent's email")
             return
-        } else if (parentConfirmation !== '' && isChecked === false) {
-            toast.error("Please enter your parent's email")
-            return
         } else if (parentConfirmation !== '' && parentConfirmation === email) {
             toast.error("Parent's email cannot be the same as yours")
             return
