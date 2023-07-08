@@ -1,12 +1,10 @@
-$assetPath :"../assets/images";
-
 body {
     // background-color: rgb(51, 83, 153);
     font-family: --typeface-inter;
 }
 
 .form-container {
-    margin-top: 15vh;
+    margin-top: 10vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -54,12 +52,21 @@ p {
 
 .form-submit {
     margin: 20px 15px 35px 15px;
-    padding: 15px;
-    border-radius: 10px;
+    padding: 10px;
+    border-radius: 15px;
     color: white;
-    background-color: rgb(77, 168, 220);
+    background-color: rgb(90, 179, 231);
     border: none;
     cursor: pointer;
+    box-shadow: 1px 4px rgb(61, 128, 167);
+    font-size: 1.2rem;
+    text-shadow: 0 0 3px #000;
+    
+    &:hover {
+        transition: all .3s ease;
+        background-color: rgb(71, 156, 205);
+        box-shadow: 1px 2px rgb(14, 84, 124);
+    }
 }
 
 .signin-link {
@@ -75,7 +82,7 @@ p {
     cursor: pointer;
 }
 
-.password{
+.password {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -83,7 +90,7 @@ p {
     width: 100%;
 }
 
-.form-password{
+.form-password {
     width: 94%;
 }
 
@@ -97,7 +104,13 @@ p {
         width: 100%;
     }
 
-    .form-password{
+    .form-password {
         width: 88%;
+    }
+}
+
+@media (max-width: 600px) {
+    .form-password {
+        width: 87%;
     }
 }

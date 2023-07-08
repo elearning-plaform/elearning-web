@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
 import { auth } from '../firebase';
 import toast, { Toaster } from 'react-hot-toast';
-import eye from '../assets/images/eye-solid.svg';
+import eye from '../assets/images/eye-svgrepo-com.svg';
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -25,6 +25,11 @@ const Signup = () => {
 
     const onSubmit = async (e: { preventDefault: () => void; }) => {
         e.preventDefault()
+
+        if (parentConfirmation === email) {
+            toast.error("Parent's email cannot be the same as yours")
+            return
+        }
 
         await createUserWithEmailAndPassword(auth, email, password)
             .then(async (userCredential) => {
