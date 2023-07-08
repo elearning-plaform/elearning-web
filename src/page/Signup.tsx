@@ -1,10 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
-import firebase, { auth } from '../firebase';
+import { auth } from '../firebase';
 import toast, { Toaster } from 'react-hot-toast';
-
-const notify = () => toast('Here is your toast.');
+import eye from '../assets/images/eye-svgrepo-com.svg';
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -14,15 +13,23 @@ const Signup = () => {
     const [password, setPassword] = useState('')
     const [parentConfirmation, setParentConfirm] = useState('')
     const [isChecked, setIsChecked] = useState(false)
+    const [passwordVisible, setPasswordVisible] = useState(false);
+
+    const togglePasswordVisibility = () => {
+        setPasswordVisible(!passwordVisible);
+    };
 
     const handleCheckboxChange = () => {
         setIsChecked(!isChecked);
     };
 
-    // const notify = () => toast('Here is your toast.')
-
     const onSubmit = async (e: { preventDefault: () => void; }) => {
         e.preventDefault()
+
+        if (parentConfirmation === email) {
+            toast.error("Parent's email cannot be the same as yours")
+            return
+        }
 
         await createUserWithEmailAndPassword(auth, email, password)
             .then(async (userCredential) => {
@@ -39,11 +46,11 @@ const Signup = () => {
 
                 switch (errorCode) {
                     case 'auth/email-already-in-use':
-                        toast.error(`Email address ${email} already in use.`);
+                        toast.error(`Email address is already in use: \n ${email}`);
                         console.log(errorMessage);
                         break;
                     case 'auth/invalid-email':
-                        toast.error(`Email address ${email} is invalid.`);
+                        toast.error(`Email address is invalid: \n ${email}`);
                         console.log(errorMessage);
                         break;
                     case 'auth/operation-not-allowed':
@@ -89,17 +96,23 @@ const Signup = () => {
                     required
                     placeholder="Email"
                 />
-                <input
-                    // PASSWORD
-                    className="form-input"
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-
-                    placeholder="Şifre"
-                    minLength={6}
-                />
+                <div className='password'>
+                    <input
+                        // PASSWORD
+                        className="form-input form-password"
+                        type={passwordVisible ? 'text' : 'password'}
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                        placeholder="Şifre"
+                        minLength={6}
+                    />
+                    <img
+                        src={eye}
+                        className='toggle-password'
+                        onClick={togglePasswordVisibility}
+                    />
+                </div>
                 <div className="age-restrictions">
                     <input
                         // AGE RESTRICTIONS
@@ -109,7 +122,7 @@ const Signup = () => {
                         onChange={handleCheckboxChange}
                         checked={isChecked}
                     />
-                    <label htmlFor="okayToEmail">En az 18 yaşında olduğumu onaylıyorum</label>
+                    <label htmlFor="okayToEmail">En az 18 yaşında olduğumu onaylıyorum.</label>
                 </div>
 
                 <p>18 yaşından küçükseniz lütfen velinizin email adresini giriniz.</p>
@@ -121,13 +134,14 @@ const Signup = () => {
                     value={parentConfirmation}
                     onChange={(e) => setParentConfirm(e.target.value)}
                     required={!isChecked}
+                    disabled={isChecked}
                     placeholder="Veli email"
                 />
 
                 <button className="form-submit">
                     Hesap Aç</button>
 
-                <p>Üye olarak Gogo Lingua Kullanım Şartları ve Gizlilik Politikasını
+                <p>Hesap açarak Gogo Lingua Kullanım Şartları ve Gizlilik Politikasını
                     kabul etmiş olursunuz.</p>
 
             </form>
