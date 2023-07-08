@@ -4,11 +4,17 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../firebase'
 import { NavLink, useNavigate } from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast';
+import eye from '../assets/images/eye-svgrepo-com.svg';
 
 const Login = () => {
     const navigate = useNavigate()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [passwordVisible, setPasswordVisible] = useState(false);
+
+    const togglePasswordVisibility = () => {
+        setPasswordVisible(!passwordVisible);
+    };
 
     const onLogin = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
@@ -57,7 +63,7 @@ const Login = () => {
         <div className="form-container">
             <Toaster />
             <form className="form">
-                <h1> Login </h1>
+                <h2>Login</h2>
 
                 <input
                     className="form-input"
@@ -68,23 +74,34 @@ const Login = () => {
                     placeholder="Email address"
                     onChange={(e) => setEmail(e.target.value)}
                 />
-                <input
-                    className="form-input"
-                    id="password"
-                    name="password"
-                    type="password"
-                    required
-                    placeholder="Password"
-                    onChange={(e) => setPassword(e.target.value)}
-                />
+
+                <div className='password'>
+                    <input
+                        // PASSWORD
+                        className="form-input form-password"
+                        type={passwordVisible ? 'text' : 'password'}
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                        placeholder="Password"
+                        minLength={6}
+                    />
+                    <img
+                        src={eye}
+                        alt='eye'
+                        className='toggle-password'
+                        onClick={togglePasswordVisibility}
+                    />
+                </div>
+
                 <button
                     className="form-submit"
                     onClick={onLogin}
                 > Login
                 </button>
+                <p><a href="/forgot-password">Forgot password?</a></p>
             </form>
-            <p className="signin-link"
-            >No account yet? {' '}
+            <p className="signin-link">No account yet?
                 <NavLink to="/signup"> Sign up </NavLink>
             </p>
         </div >

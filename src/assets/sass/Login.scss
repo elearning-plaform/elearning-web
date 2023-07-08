@@ -34,8 +34,8 @@ body {
 .age-restrictions {
     display: flex;
     text-align: left;
-    margin: 10px auto 15px;
-    font-size: 0.8rem;
+    margin: 10px auto 10px;
+    font-size: 0.7rem;
     max-width: 80%;
 
     input {
@@ -44,28 +44,28 @@ body {
 }
 
 p {
-    font-size: 0.8rem;
-    margin-bottom: 10px;
+    font-size: 0.7rem;
+    margin-bottom: 0px;
     margin-left: 20px;
     margin-right: 30px;
 }
 
 .form-submit {
-    margin: 20px 15px 35px 15px;
+    margin: 15px 15px 35px 15px;
     padding: 10px;
-    border-radius: 15px;
+    border-radius: 5px;
     color: white;
     background-color: rgb(90, 179, 231);
     border: none;
     cursor: pointer;
-    box-shadow: 1px 4px rgb(61, 128, 167);
+    // box-shadow: 1px 4px rgb(61, 128, 167);
     font-size: 1.2rem;
     text-shadow: 0 0 3px #000;
     
     &:hover {
         transition: all .3s ease;
         background-color: rgb(71, 156, 205);
-        box-shadow: 1px 2px rgb(14, 84, 124);
+        // box-shadow: 1px 2px rgb(14, 84, 124);
     }
 }
 

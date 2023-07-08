@@ -38,9 +38,6 @@ const Signup = () => {
         } else if (parentConfirmation === '' && isChecked === false) {
             toast.error("Please enter your parent's email")
             return
-        } else if (parentConfirmation !== '' && isChecked === false) {
-            toast.error("Please enter your parent's email")
-            return
         } else if (parentConfirmation !== '' && parentConfirmation === email) {
             toast.error("Parent's email cannot be the same as yours")
             return
@@ -92,7 +89,7 @@ const Signup = () => {
                 className="form"
                 onSubmit={onSubmit}
             >
-                <h3> Profil Oluştur </h3>
+                <h2> Sign Up </h2>
 
                 <input
                     // USERNAME
@@ -101,7 +98,7 @@ const Signup = () => {
                     value={username}
                     onChange={(e) => setUserName(e.target.value)}
                     required
-                    placeholder="Kullanıcı adı"
+                    placeholder="Username"
                 />
                 <input
                     // EMAIL
@@ -120,7 +117,7 @@ const Signup = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
-                        placeholder="Şifre"
+                        placeholder="Password"
                         minLength={6}
                     />
                     <img
@@ -139,10 +136,10 @@ const Signup = () => {
                         onChange={handleCheckboxChange}
                         checked={isChecked}
                     />
-                    <label htmlFor="okayToEmail">En az 18 yaşında olduğumu onaylıyorum.</label>
+                    <label htmlFor="okayToEmail">I certify that I am at least 18 years old.</label>
                 </div>
 
-                <p>18 yaşından küçükseniz lütfen velinizin email adresini giriniz.</p>
+                <p>If you are under the age of 18, please enter your parent's email address.</p>
 
                 <input
                     // PARENTS EMAIL
@@ -152,14 +149,14 @@ const Signup = () => {
                     onChange={(e) => setParentConfirm(e.target.value)}
                     required={!isChecked}
                     disabled={isChecked}
-                    placeholder="Veli email"
+                    placeholder="Parent email"
                 />
 
-                <button className="form-submit">
-                    Hesap Aç</button>
 
-                <p>Hesap açarak Gogo Lingua Kullanım Şartları ve Gizlilik Politikasını
-                    kabul etmiş olursunuz.</p>
+                <button className="form-submit">
+                    Sign Up</button>
+
+                <p>By creating an account, you agree to the Gogo Lingua Terms of Use and Privacy Policy.</p>
 
             </form>
 
