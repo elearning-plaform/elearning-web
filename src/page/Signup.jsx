@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { createUserWithEmailAndPassword, sendEmailVerification, updateCurrentUser, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from 'firebase/auth';
 import { auth } from '../firebase';
 import toast, { Toaster } from 'react-hot-toast';
 import eye from '../assets/images/eye-svgrepo-com.svg';
