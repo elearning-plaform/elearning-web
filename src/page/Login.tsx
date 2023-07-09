@@ -58,6 +58,25 @@ const Login = () => {
 
     }
 
+    function handleClickAsGuest(event: any) {
+        console.log("Login as Guest")
+        console.log(auth.currentUser)
+    }
+
+    // auth.onAuthStateChanged((user) => {
+    //     if (user) {
+    //         // User is signed in, see docs for a list of available properties
+    //         // https://firebase.google.com/docs/reference/js/firebase.User
+    //         // var uid = user.uid;
+    //         // ...
+    //         console.log("User is signed in")
+    //     } else {
+    //         // User is signed out
+    //         // ...
+    //         console.log("User is signed out")
+    //     }
+    // });
+
     return (
 
         <div className="form-container">
@@ -99,11 +118,20 @@ const Login = () => {
                     onClick={onLogin}
                 > Login
                 </button>
+
+                <div
+                    className="form-submit guest"
+                    onClick={handleClickAsGuest}
+                > Login as Guest
+                </div>
+
                 <p><NavLink to="/forgot-password">Forgot password?</NavLink></p>
             </form>
+
             <p className="signin-link">No account yet?
                 <NavLink to="/signup"> Sign up </NavLink>
             </p>
+
         </div >
 
     )
