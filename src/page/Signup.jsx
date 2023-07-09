@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
 import { auth } from '../firebase';
 import toast, { Toaster } from 'react-hot-toast';
 import eye from '../assets/images/eye-svgrepo-com.svg';
+import emailjs from '@emailjs/browser';
 
 const Signup = () => {
     const navigate = useNavigate();
+    const form = useRef();
 
     const [username, setUserName] = useState('')
     const [email, setEmail] = useState('')
@@ -23,7 +25,7 @@ const Signup = () => {
         setIsChecked(!isChecked);
     };
 
-    const onSubmit = async (e: { preventDefault: () => void; }) => {
+    const onSubmit = async (e) => {
         e.preventDefault()
 
         if (username === '') {
@@ -48,7 +50,19 @@ const Signup = () => {
                 // SIGNING UP
                 const user = userCredential.user;
                 sendEmailVerification(user)
-                alert("Please check your email for verification")
+                if (isChecked === false && parentConfirmation !== '') {
+                    emailjs.sendForm(
+                        process.env.REACT_APP_YOUR_SERVICE_ID,
+                        process.env.REACT_APP_YOUR_TEMPLATE_ID,
+                        form.current,
+                        process.env.REACT_APP_YOUR_PUBLIC_KEY)
+                        .then((result) => {
+                            console.log(result.text);
+                        }, (error) => {
+                            console.log(error.text);
+                        });
+                }
+                alert("Please check your email for verification. Also check your spam folder")
                 navigate("/login")
             })
             // ERROR HANDLING
@@ -85,6 +99,7 @@ const Signup = () => {
         <div className="form-container">
             <Toaster />
             <form
+                ref={form}
                 noValidate
                 className="form"
                 onSubmit={onSubmit}
@@ -95,6 +110,7 @@ const Signup = () => {
                     // USERNAME
                     className="form-input"
                     type="username"
+                    name="to_name"
                     value={username}
                     onChange={(e) => setUserName(e.target.value)}
                     required
@@ -145,6 +161,7 @@ const Signup = () => {
                     // PARENTS EMAIL
                     className="form-input"
                     type="email"
+                    name="parent_email"
                     value={parentConfirmation}
                     onChange={(e) => setParentConfirm(e.target.value)}
                     required={!isChecked}
