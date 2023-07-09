@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
+import { createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from 'firebase/auth';
 import { auth } from '../firebase';
 import toast, { Toaster } from 'react-hot-toast';
 import eye from '../assets/images/eye-svgrepo-com.svg';
@@ -49,6 +49,9 @@ const Signup = () => {
             .then(async (userCredential) => {
                 // SIGNING UP
                 const user = userCredential.user;
+                await updateProfile(auth.currentUser, {
+                    displayName: username
+                })
                 sendEmailVerification(user)
                 if (isChecked === false && parentConfirmation !== '') {
                     emailjs.sendForm(

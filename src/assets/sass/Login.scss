@@ -61,12 +61,17 @@ p {
     // box-shadow: 1px 4px rgb(61, 128, 167);
     font-size: 1.2rem;
     text-shadow: 0 0 3px #000;
-    
+
     &:hover {
         transition: all .3s ease;
         background-color: rgb(71, 156, 205);
         // box-shadow: 1px 2px rgb(14, 84, 124);
     }
+}
+
+.guest {
+    margin-top: -30px;
+    font-size: 1.3rem;
 }
 
 .signin-link {
@@ -96,12 +101,13 @@ p {
 
 @media (max-width: 320px) {
     .form-container {
-        margin-top: 0;
+        margin-top: 35px;
     }
 
     .form {
         max-width: 100%;
         width: 100%;
+        box-shadow: none;
     }
 
     .form-password {

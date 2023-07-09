@@ -23,8 +23,13 @@ const Home = () => {
             navigate("/login");
             console.log("Signed out successfully")
         }).catch((error) => {
-            // An error happened.
+            console.log(error.message)
+            console.log(error.code)
         });
+    }
+
+    function handleInfo(event: any) {
+        console.log(auth.currentUser)
     }
 
     return (
@@ -37,6 +42,9 @@ const Home = () => {
                 <div>
                     <button onClick={handleLogout}>
                         Logout
+                    </button>
+                    <button onClick={handleInfo}>
+                        user info
                     </button>
                 </div>
             </nav>
