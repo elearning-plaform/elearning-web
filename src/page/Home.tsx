@@ -1,3 +1,4 @@
+import '../assets/sass/Home.scss';
 import { useEffect } from 'react';
 import { signOut } from "firebase/auth";
 import { auth } from '../firebase';
@@ -32,22 +33,68 @@ const Home = () => {
         console.log(auth.currentUser)
     }
 
+    function handlClick(event: any) {
+        console.log(auth.currentUser?.isAnonymous)
+        if (auth.currentUser?.isAnonymous) {
+            alert('Sign in to access this lesson')
+        } else {
+            // navigate('/lesson')
+            alert('Here is your lesson!')
+        }
+    }
+
+    const lessonStyle = {
+        color: auth.currentUser?.isAnonymous ? '#fff' : '#000',
+        backgroundColor: auth.currentUser?.isAnonymous ? '#000' : '#fff'
+    };
+
     return (
         <div>
             <nav>
-                <p>
-                    Welcome Home
-                </p>
-
+                <p>Welcome Home</p>
                 <div>
-                    <button onClick={handleLogout}>
-                        Logout
-                    </button>
-                    <button onClick={handleInfo}>
-                        user info
-                    </button>
+                    <button onClick={handleLogout}>Logout</button>
+                    <button onClick={handleInfo}>User Info</button>
                 </div>
             </nav>
+
+            <div className='lesson-container'>
+                <div
+                    // onClick={handlClick}
+                    // style={lessonStyle}
+                    className='lesson one'>
+                    Lesson 1</div>
+                <div
+                    // onClick={handlClick}
+                    // style={lessonStyle}
+                    className='lesson two'
+                >Lesson 2</div>
+                <div
+                    onClick={handlClick}
+                    style={lessonStyle}
+                    className='lesson three'
+                >Lesson 3</div>
+                <div
+                    onClick={handlClick}
+                    style={lessonStyle}
+                    className='lesson four'>
+                    Lesson 4</div>
+                <div
+                    onClick={handlClick}
+                    style={lessonStyle}
+                    className='lesson five'>
+                    Lesson 5</div>
+                <div
+                    onClick={handlClick}
+                    style={lessonStyle}
+                    className='lesson six'>L
+                    esson 6</div>
+                <div
+                    onClick={handlClick}
+                    style={lessonStyle}
+                    className='lesson seven'
+                >Lesson 7</div>
+            </div>
         </div>
     )
 }
