@@ -1,6 +1,8 @@
 @import './index.scss';
 
 .nav-bar {
+    position: absolute;
+    width: 100%;
     border: 1px solid var(--main);
     display: flex;
     background: var(--background);
@@ -33,7 +35,7 @@
 }
 
 .main {
-    height: 94.2vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
