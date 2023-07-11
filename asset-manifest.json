@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.css": "/elearning-web/static/css/main.f3e1b170.css",
-    "main.js": "/elearning-web/static/js/main.74ac6538.js",
+    "main.css": "/elearning-web/static/css/main.ffad3a0b.css",
+    "main.js": "/elearning-web/static/js/main.20aa44ab.js",
+    "static/media/mailchimp-04X1Yp9hNH8-unsplash.jpg": "/elearning-web/static/media/mailchimp-04X1Yp9hNH8-unsplash.e4f86629fb439fe1f7c8.jpg",
     "static/media/eye-svgrepo-com.svg": "/elearning-web/static/media/eye-svgrepo-com.a6b9dd4c404a889007bd40a2b6a6b2b0.svg",
     "index.html": "/elearning-web/index.html",
-    "main.f3e1b170.css.map": "/elearning-web/static/css/main.f3e1b170.css.map",
-    "main.74ac6538.js.map": "/elearning-web/static/js/main.74ac6538.js.map"
+    "main.ffad3a0b.css.map": "/elearning-web/static/css/main.ffad3a0b.css.map",
+    "main.20aa44ab.js.map": "/elearning-web/static/js/main.20aa44ab.js.map"
   },
   "entrypoints": [
-    "static/css/main.f3e1b170.css",
-    "static/js/main.74ac6538.js"
+    "static/css/main.ffad3a0b.css",
+    "static/js/main.20aa44ab.js"
   ]
 }
