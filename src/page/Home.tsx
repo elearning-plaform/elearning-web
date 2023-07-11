@@ -12,7 +12,7 @@ const Home = () => {
         const token = localStorage.getItem('token');
         if (!token) {
             localStorage.removeItem('token');
-            navigate('/login', { replace: true });
+            navigate('/elearning-web', { replace: true });
         }
     }, [navigate])
 
@@ -21,7 +21,7 @@ const Home = () => {
         signOut(auth).then(() => {
             // Sign-out successful.
             localStorage.removeItem('token');
-            navigate("/login");
+            navigate("/elearning-web");
             console.log("Signed out successfully")
         }).catch((error) => {
             console.log(error.message)
@@ -33,13 +33,13 @@ const Home = () => {
         console.log(auth.currentUser)
     }
 
-    function handlClick(event: any) {
+    function handlClickIsAnonymous(event: any) {
         console.log(auth.currentUser?.isAnonymous)
         if (auth.currentUser?.isAnonymous) {
             alert('Sign in to access this lesson')
         } else {
-            // navigate('/lesson')
             alert('Here is your lesson!')
+            // navigate('/lesson')
         }
     }
 
@@ -70,27 +70,27 @@ const Home = () => {
                     className='lesson two'
                 >Lesson 2</div>
                 <div
-                    onClick={handlClick}
+                    onClick={handlClickIsAnonymous}
                     style={lessonStyle}
                     className='lesson three'
                 >Lesson 3</div>
                 <div
-                    onClick={handlClick}
+                    onClick={handlClickIsAnonymous}
                     style={lessonStyle}
                     className='lesson four'>
                     Lesson 4</div>
                 <div
-                    onClick={handlClick}
+                    onClick={handlClickIsAnonymous}
                     style={lessonStyle}
                     className='lesson five'>
                     Lesson 5</div>
                 <div
-                    onClick={handlClick}
+                    onClick={handlClickIsAnonymous}
                     style={lessonStyle}
                     className='lesson six'>L
                     esson 6</div>
                 <div
-                    onClick={handlClick}
+                    onClick={handlClickIsAnonymous}
                     style={lessonStyle}
                     className='lesson seven'
                 >Lesson 7</div>
