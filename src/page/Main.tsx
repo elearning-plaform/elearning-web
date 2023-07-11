@@ -2,7 +2,7 @@ import '../assets/sass/Main.scss'
 import { useEffect } from 'react'
 import { signOut } from "firebase/auth"
 import { auth } from '../firebase'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast'
 
 const Home = () => {
