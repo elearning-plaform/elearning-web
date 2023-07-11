@@ -110,6 +110,34 @@
         padding-bottom: 3px;
     }
 
+    .front-page-icons {
+        width: 50%;
+    }
+
+    .front-page-title {
+        font-size: (2.8vw)*1.5;
+    }
+
+    .front-page-text {
+        font-size: (1.5vw)*1.5;
+        max-width: (20vw)*1.5;
+    }
+
+    .front-page-title-2 {
+        font-size: (1.8vw)*1.5;
+    }
+
+    .front-page-buttons {
+        width: (20vw)*1.5;
+        gap: (1vw)*1;
+
+        .front-page-button {
+            padding-top: (10px)*1.5;
+            padding-bottom: (10px)*1.5;
+            font-size: (1.3vw)*1.5;
+        }
+    }
+
 }
 
 @media (max-width: 650px) {
