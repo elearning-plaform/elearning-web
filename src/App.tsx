@@ -4,12 +4,11 @@ import Signup from './page/Signup';
 import Login from './page/Login';
 import ForgotPassword from './page/ForgotPassword';
 import Home from './page/Home';
-import { HashRouter as Router} from "react-router-dom";
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
@@ -19,7 +18,7 @@ function App() {
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/main" element={<Main />} />
           </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
 

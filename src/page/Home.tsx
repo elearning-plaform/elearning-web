@@ -35,7 +35,7 @@ const FrontPage = () => {
 
 
     return (
-        <div className="front-page">
+        <div>
 
         </div>
     )
