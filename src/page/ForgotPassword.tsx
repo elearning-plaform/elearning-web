@@ -42,9 +42,10 @@ const ForgotPassword = () => {
     }
 
     return (
-
         <div className="form-container">
             <Toaster />
+            <NavLink className="nav-link-home" to="/home"> Home </NavLink>
+
             <form className="form">
                 <h2>Password Reset</h2>
                 <input
@@ -62,6 +63,7 @@ const ForgotPassword = () => {
                 >Reset
                 </button>
             </form>
+
             <p className="signin-link">Remember your password?
                 <NavLink to="/login"> Login </NavLink>
             </p>

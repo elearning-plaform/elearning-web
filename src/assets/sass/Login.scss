@@ -101,6 +101,12 @@ p {
     width: 94%;
 }
 
+.nav-link-home {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
 @media (max-width: 320px) {
     .form-container {
         margin-top: 35px;
