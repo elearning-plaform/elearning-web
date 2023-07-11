@@ -33,7 +33,6 @@ const Home = () => {
             });
     }
 
-
     return (
         <div className='home-page'>
             <div className='container-home'>
@@ -64,19 +63,7 @@ const Home = () => {
                         >TRY IT</div>
                     </div>
                 </div>
-
-
             </div>
-
-
-
-            {/* <NavLink to="/forgot-password">Forgot password?</NavLink>
-                <br />
-                <NavLink to="/login">Login</NavLink>
-                <br />
-                <NavLink to="/signup">Sign Up</NavLink> */}
-
-
         </div>
     )
 }
