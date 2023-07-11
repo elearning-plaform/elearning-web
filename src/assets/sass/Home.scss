@@ -12,6 +12,7 @@
 
 .lesson {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 10px;
@@ -21,8 +22,18 @@
     border-radius: 20px;
     cursor: pointer;
 
-    .one{
-
-    }
+    .one {}
 }
 
+.progress-bar {
+    width: 90%;
+    height: 10px;
+    border: 1px solid var(--main);
+    margin-top: auto;
+    margin-bottom: 15px;
+}
+
+.welcome {
+    margin-top: 50px;
+    margin-left: auto;
+}

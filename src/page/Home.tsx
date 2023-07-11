@@ -1,18 +1,19 @@
-import '../assets/sass/Home.scss';
-import { useEffect } from 'react';
-import { signOut } from "firebase/auth";
-import { auth } from '../firebase';
-import { useNavigate } from 'react-router-dom';
+import '../assets/sass/Home.scss'
+import { useEffect } from 'react'
+import { signOut } from "firebase/auth"
+import { auth } from '../firebase'
+import { NavLink, useNavigate } from 'react-router-dom'
+import toast, { Toaster } from 'react-hot-toast'
 
 const Home = () => {
     const navigate = useNavigate();
 
     // KEEP USER LOGGED IN
     useEffect(() => {
-        const token = localStorage.getItem('token');
+        const token = localStorage.getItem('token')
         if (!token) {
-            localStorage.removeItem('token');
-            navigate('/elearning-web', { replace: true });
+            localStorage.removeItem('token')
+            navigate('/elearning-web', { replace: true })
         }
     }, [navigate])
 
@@ -20,83 +21,104 @@ const Home = () => {
     const handleLogout = () => {
         signOut(auth).then(() => {
             // Sign-out successful.
-            localStorage.removeItem('token');
-            navigate("/elearning-web");
+            localStorage.removeItem('token')
+            navigate("/elearning-web")
             console.log("Signed out successfully")
         }).catch((error) => {
             console.log(error.message)
             console.log(error.code)
-        });
+        })
     }
 
     function handleInfo(event: any) {
         console.log(auth.currentUser)
     }
 
-    function handlClickIsAnonymous(event: any) {
+    const lessonStyle = {
+        color: auth.currentUser?.isAnonymous ? '#fff' : '#000',
+        backgroundColor: auth.currentUser?.isAnonymous ? '#0000003b' : '#fff',
+        cursor: auth.currentUser?.isAnonymous ? 'not-allowed' : 'pointer',
+        border: auth.currentUser?.isAnonymous ? 'none' : '1px solid #000',
+        // className: auth.currentUser?.isAnonymous ? 'my-class' : undefined,
+    }
+
+    function handlClickIsAnonymous() {
         console.log(auth.currentUser?.isAnonymous)
         if (auth.currentUser?.isAnonymous) {
-            alert('Sign in to access this lesson')
+            toast.error('Sign in to access this lesson')
         } else {
-            alert('Here is your lesson!')
+            toast.success('Here is your lesson!')
             // navigate('/lesson')
         }
     }
 
-    const lessonStyle = {
-        color: auth.currentUser?.isAnonymous ? '#fff' : '#000',
-        backgroundColor: auth.currentUser?.isAnonymous ? '#000' : '#fff'
-    };
+    function freeLesson() {
+        toast.success('Here is your lesson!')
+        // navigate('/lesson')
+    }
+
+
 
     return (
         <div>
-            <nav>
-                <p>Welcome Home</p>
-                <div>
-                    <button onClick={handleLogout}>Logout</button>
-                    <button onClick={handleInfo}>User Info</button>
+            <Toaster />
+            <nav className='nav-bar'>
+                <div className='logo'>
+                    <h1>Gogo Lingua</h1>
                 </div>
+                <ul className="nav-links">
+                    <button
+                        className="nav-link"
+                        onClick={handleLogout}
+                    > Logout </button>
+                </ul>
             </nav>
+
+
+            <button
+                className="welcome"
+                onClick={handleInfo}
+            > User Info (Debug)
+            </button>
 
             <div className='lesson-container'>
                 <div
-                    // onClick={handlClick}
+                    onClick={freeLesson}
                     // style={lessonStyle}
-                    className='lesson one'>
-                    Lesson 1</div>
+                    className='lesson one'
+                >Lesson 1<div
+                    className='progress-bar'
+                ></div></div>
                 <div
-                    // onClick={handlClick}
+                    onClick={freeLesson}
                     // style={lessonStyle}
                     className='lesson two'
-                >Lesson 2</div>
+                >Lesson 2<div
+                    className='progress-bar'
+                ></div></div>
                 <div
                     onClick={handlClickIsAnonymous}
                     style={lessonStyle}
                     className='lesson three'
-                >Lesson 3</div>
+                >
+                    {auth.currentUser?.isAnonymous ? '' : 'Lesson 3'}
+                    {!auth.currentUser?.isAnonymous && (
+                        <div
+                            className='progress-bar'
+                        ></div>)}
+                </div>
                 <div
                     onClick={handlClickIsAnonymous}
                     style={lessonStyle}
-                    className='lesson four'>
-                    Lesson 4</div>
-                <div
-                    onClick={handlClickIsAnonymous}
-                    style={lessonStyle}
-                    className='lesson five'>
-                    Lesson 5</div>
-                <div
-                    onClick={handlClickIsAnonymous}
-                    style={lessonStyle}
-                    className='lesson six'>L
-                    esson 6</div>
-                <div
-                    onClick={handlClickIsAnonymous}
-                    style={lessonStyle}
-                    className='lesson seven'
-                >Lesson 7</div>
+                    className='lesson four'
+                >
+                    {auth.currentUser?.isAnonymous ? '' : 'Lesson 4'}
+                    {!auth.currentUser?.isAnonymous && (<div className='progress-bar'></div>)}
+                </div>
+
             </div>
         </div>
     )
 }
 
-export default Home;
+export default Home

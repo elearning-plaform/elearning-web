@@ -52,12 +52,13 @@ const FrontPage = () => {
                     alt="working" />
                 <div className="main-content">
                     <h1 className='title'>Learn a new language</h1>
-                    <p className='title'>Learn a new language with Gogo Lingua</p>
+                    <h3 className='title'>with Gogo Lingua</h3>
                 </div>
                 <button
                     className='btn'
                     onClick={handleClickAsGuest}
-                > Login as Guest
+                >
+                    Get Started
                 </button>
             </main>
 

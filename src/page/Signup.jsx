@@ -101,6 +101,17 @@ const Signup = () => {
 
         <div className="form-container">
             <Toaster />
+
+            <nav className='nav-bar'>
+                <div className='logo'>
+                    <h1>Gogo Lingua</h1>
+                </div>
+                <ul className="nav-links">
+                    <NavLink className="nav-link" to="/signup"> SignUp </NavLink>
+                    <NavLink className="nav-link" to="/login"> Login </NavLink>
+                </ul>
+            </nav>
+
             <form
                 ref={form}
                 noValidate
