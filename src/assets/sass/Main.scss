@@ -1,0 +1,39 @@
+@import './index.scss';
+
+.lesson-container {
+    border: 1px solid var(--main);
+    max-width: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 30px auto;
+    border-radius: 20px;
+}
+
+.lesson {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    border: 1px solid var(--main);
+    border-radius: 20px;
+    cursor: pointer;
+
+    .one {}
+}
+
+.progress-bar {
+    width: 90%;
+    height: 10px;
+    border: 1px solid var(--main);
+    margin-top: auto;
+    margin-bottom: 15px;
+}
+
+.welcome {
+    margin-top: 50px;
+    margin-left: auto;
+}

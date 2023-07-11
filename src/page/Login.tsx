@@ -34,7 +34,7 @@ const Login = () => {
                             // Token retrieved successfully
                             // navigate to home page
                             localStorage.setItem('token', JSON.stringify(token))
-                            navigate("/home")
+                            navigate("/main")
                         })
                         .catch((error) => {
                             console.error('Error getting ID token:', error);
@@ -86,7 +86,7 @@ const Login = () => {
                         // Token retrieved successfully
                         // navigate to home page
                         localStorage.setItem('token', JSON.stringify(token))
-                        navigate("/home")
+                        navigate("/main")
                     })
                     .catch((error) => {
                         // Error retrieving the token
@@ -109,6 +109,7 @@ const Login = () => {
                     <h1>Gogo Lingua</h1>
                 </div>
                 <ul className="nav-links">
+                    <NavLink className="nav-link" to="/home"> Home </NavLink>
                     <NavLink className="nav-link" to="/signup"> SignUp </NavLink>
                     <NavLink className="nav-link" to="/login"> Login </NavLink>
                 </ul>

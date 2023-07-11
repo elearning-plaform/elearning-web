@@ -107,6 +107,7 @@ const Signup = () => {
                     <h1>Gogo Lingua</h1>
                 </div>
                 <ul className="nav-links">
+                    <NavLink className="nav-link" to="/home"> Home </NavLink>
                     <NavLink className="nav-link" to="/signup"> SignUp </NavLink>
                     <NavLink className="nav-link" to="/login"> Login </NavLink>
                 </ul>
