@@ -36,32 +36,6 @@ const FrontPage = () => {
 
     return (
         <div className="front-page">
-            <nav className='nav-bar'>
-                <div className='logo'>
-                    <h1>Gogo Lingua</h1>
-                </div>
-                <ul className="nav-links">
-                    <NavLink className="nav-link" to="/home"> Home </NavLink>
-                    <NavLink className="nav-link" to="/signup"> SignUp </NavLink>
-                    <NavLink className="nav-link" to="/login"> Login </NavLink>
-                </ul>
-            </nav>
-            <main className="main">
-                <img
-                    className="main-img"
-                    src={working}
-                    alt="working" />
-                <div className="main-content">
-                    <h1 className='title'>Learn a new language</h1>
-                    <h3 className='title'>with Gogo Lingua</h3>
-                </div>
-                <button
-                    className='btn'
-                    onClick={handleClickAsGuest}
-                >
-                    Get Started
-                </button>
-            </main>
 
         </div>
     )

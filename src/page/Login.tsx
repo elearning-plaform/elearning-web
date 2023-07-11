@@ -100,24 +100,12 @@ const Login = () => {
     }
 
     return (
-
         <div className="form-container">
             <Toaster />
-
-            <nav className='nav-bar'>
-                <div className='logo'>
-                    <h1>Gogo Lingua</h1>
-                </div>
-                <ul className="nav-links">
-                    <NavLink className="nav-link" to="/home"> Home </NavLink>
-                    <NavLink className="nav-link" to="/signup"> SignUp </NavLink>
-                    <NavLink className="nav-link" to="/login"> Login </NavLink>
-                </ul>
-            </nav>
+            <NavLink className="nav-link-home" to="/home"> Home </NavLink>
 
             <form className="form">
                 <h2>Login</h2>
-
                 <input
                     className="form-input"
                     id="email-address"
@@ -127,7 +115,6 @@ const Login = () => {
                     placeholder="Email address"
                     onChange={(e) => setEmail(e.target.value)}
                 />
-
                 <div className='password'>
                     <input
                         // PASSWORD
@@ -146,26 +133,22 @@ const Login = () => {
                         onClick={togglePasswordVisibility}
                     />
                 </div>
-
                 <button
                     className="form-submit"
                     onClick={onLogin}
                 > Login
                 </button>
-
                 <div
                     className="form-submit guest"
                     onClick={handleClickAsGuest}
                 > Login as Guest
                 </div>
-
                 <p><NavLink to="/forgot-password">Forgot password?</NavLink></p>
             </form>
 
             <p className="signin-link">No account yet?
                 <NavLink to="/signup"> Sign up </NavLink>
             </p>
-
         </div >
 
     )

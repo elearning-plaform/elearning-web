@@ -98,20 +98,9 @@ const Signup = () => {
     }
 
     return (
-
         <div className="form-container">
             <Toaster />
-
-            <nav className='nav-bar'>
-                <div className='logo'>
-                    <h1>Gogo Lingua</h1>
-                </div>
-                <ul className="nav-links">
-                    <NavLink className="nav-link" to="/home"> Home </NavLink>
-                    <NavLink className="nav-link" to="/signup"> SignUp </NavLink>
-                    <NavLink className="nav-link" to="/login"> Login </NavLink>
-                </ul>
-            </nav>
+            <NavLink className="nav-link-home" to="/home"> Home </NavLink>
 
             <form
                 ref={form}
@@ -120,7 +109,6 @@ const Signup = () => {
                 onSubmit={onSubmit}
             >
                 <h2> Sign Up </h2>
-
                 <input
                     // USERNAME
                     className="form-input"
@@ -169,9 +157,7 @@ const Signup = () => {
                     />
                     <label htmlFor="okayToEmail">I certify that I am at least 18 years old.</label>
                 </div>
-
                 <p>If you are under the age of 18, please enter your parent's email address.</p>
-
                 <input
                     // PARENTS EMAIL
                     className="form-input"
@@ -183,19 +169,14 @@ const Signup = () => {
                     disabled={isChecked}
                     placeholder="Parent email"
                 />
-
-
                 <button className="form-submit">
                     Sign Up</button>
-
                 <p>By creating an account, you agree to the Gogo Lingua Terms of Use and Privacy Policy.</p>
-
             </form>
-
+            
             <p className='signin-link'> Already have an account?
                 <NavLink to="/login"> Sign in</NavLink>
             </p>
-
         </div>
     )
 }
