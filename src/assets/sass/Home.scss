@@ -45,7 +45,6 @@
 
 .front-page-info {
     margin-right: 6vw;
-    // height: 45vh;
 }
 
 .front-page-title {
@@ -98,6 +97,22 @@
 }
 
 @media (max-width: 1200px) {
+    .container-home {
+        flex-direction: column;
+    }
+
+    .front-page-info {
+        margin-right: 0;
+    }
+
+    .front-page-buttons .front-page-button {
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+
+}
+
+@media (max-width: 650px) {
 
     .container-home {
         flex-direction: column;
@@ -105,6 +120,50 @@
 
     .front-page-info {
         margin-right: 0;
+    }
+
+    .front-page-buttons .front-page-button {
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+
+    .front-page-icons {
+        width: 100%;
+    }
+
+    .front-page-title {
+        font-size: (2.8vw)*3;
+    }
+
+    .front-page-text {
+        font-size: (1.5vw)*3;
+        max-width: (20vw)*3;
+    }
+
+    .front-page-title-2 {
+        font-size: (1.8vw)*3;
+    }
+
+    .front-page-buttons {
+        width: (20vw)*3;
+        gap: (1vw)*2;
+
+        .front-page-button {
+            padding-top: (10px)*2;
+            padding-bottom: (10px)*2;
+            font-size: (1.3vw)*3;
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    .home-page {
+        height: 100%;
+        padding: 0;
+    }
+
+    .container-home {
+        height: 130vh;
     }
 
 }
