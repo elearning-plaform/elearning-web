@@ -105,7 +105,7 @@ const Signup = () => {
             <form
                 ref={form}
                 noValidate
-                className="form"
+                className="form signup-form"
                 onSubmit={onSubmit}
             >
                 <h2> Sign Up </h2>
@@ -155,7 +155,10 @@ const Signup = () => {
                         onChange={handleCheckboxChange}
                         checked={isChecked}
                     />
-                    <label htmlFor="okayToEmail">I certify that I am at least 18 years old.</label>
+                    <label 
+                    className='age-restrictions-label'
+                    htmlFor="okayToEmail"
+                    >I certify that I am at least 18 years old.</label>
                 </div>
                 <p>If you are under the age of 18, please enter your parent's email address.</p>
                 <input

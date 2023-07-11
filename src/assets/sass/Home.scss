@@ -1,2 +1,110 @@
 @import './index.scss';
 
+.home-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--white-light);
+    height: 100vh;
+    padding: 30px;
+    user-select: none;
+}
+
+.container-home {
+    display: flex;
+    width: 95vw;
+    height: 95vh;
+    background: var(--white);
+    justify-content: center;
+    align-items: center;
+    gap: 10vw;
+    box-shadow: 0 0 10px var(--gray);
+}
+
+.front-page-icons {
+    width: 40vw;
+
+    // border: 1px solid var(--silver);
+
+    animation: myAnim 6s ease-in-out 2s 1 normal forwards;
+
+    @keyframes myAnim {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.03);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+}
+
+.front-page-info {
+    margin-right: 6vw;
+    // height: 45vh;
+}
+
+.front-page-title {
+    font-size: 2.8vw;
+    color: rgb(242, 0, 0);
+    font-family: var(--typeface-inter);
+    margin-bottom: 4vw;
+}
+
+.front-page-text {
+    font-size: 1.5vw;
+    color: #0a619c;
+    font-weight: bold;
+    max-width: 20vw;
+    margin-bottom: 2vw;
+}
+
+.front-page-title-2 {
+    color: #004775;
+    font-size: 1.8vw;
+    font-family: var(--typeface-inter);
+    margin-bottom: 1.3vw;
+}
+
+.front-page-buttons {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    gap: 1vw;
+
+    .front-page-button {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: 1.3vw;
+        font-weight: bold;
+        border-radius: 10px;
+        border: 2px solid #004775;
+        color: #004775;
+        background: var(--white);
+        text-decoration: none;
+        text-align: center;
+
+        &:hover {
+            background: #44b4ff;
+            color: var(--white);
+            border: 2px solid var(--white);
+            cursor: pointer;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+
+    .container-home {
+        flex-direction: column;
+    }
+
+    .front-page-info {
+        margin-right: 0;
+    }
+
+}
