@@ -4,7 +4,7 @@ import Signup from './page/Signup';
 import Login from './page/Login';
 import ForgotPassword from './page/ForgotPassword';
 import Home from './page/Home';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter as Router} from "react-router-dom";
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
