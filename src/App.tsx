@@ -1,9 +1,9 @@
 import './assets/sass/App.scss';
-import Home from './page/Home';
+import Main from './page/Main';
 import Signup from './page/Signup';
 import Login from './page/Login';
 import ForgotPassword from './page/ForgotPassword';
-import FrontPage from './page/FrontPage';
+import Home from './page/Home';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
 
@@ -11,12 +11,13 @@ function App() {
   return (
     <Router>
           <Routes>
+            <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/elearning-web" element={<Home />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/" element={<FrontPage />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/elearning-web" element={<FrontPage />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/main" element={<Main />} />
           </Routes>
     </Router>
   );

@@ -1,102 +1,70 @@
-import '../assets/sass/Home.scss';
-import { useEffect } from 'react';
-import { signOut } from "firebase/auth";
-import { auth } from '../firebase';
-import { useNavigate } from 'react-router-dom';
+import '../assets/sass/Home.scss'
+import { signInAnonymously } from 'firebase/auth'
+import { auth } from '../firebase'
+import { NavLink, useNavigate } from 'react-router-dom'
+import working from '../assets/images/mailchimp-04X1Yp9hNH8-unsplash.jpg';
 
-const Home = () => {
-    const navigate = useNavigate();
+const FrontPage = () => {
+    const navigate = useNavigate()
 
-    // KEEP USER LOGGED IN
-    useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (!token) {
-            localStorage.removeItem('token');
-            navigate('/elearning-web', { replace: true });
-        }
-    }, [navigate])
+    function handleClickAsGuest(event: any) {
+        console.log("Login as Guest")
 
-    // LOGOUT
-    const handleLogout = () => {
-        signOut(auth).then(() => {
-            // Sign-out successful.
-            localStorage.removeItem('token');
-            navigate("/elearning-web");
-            console.log("Signed out successfully")
-        }).catch((error) => {
-            console.log(error.message)
-            console.log(error.code)
-        });
+        signInAnonymously(auth)
+            .then((userCredential) => {
+                // The user is signed in anonymously
+                // Retrieve the user's token
+                const user = userCredential.user;
+                user.getIdToken()
+                    .then((token) => {
+                        // Token retrieved successfully
+                        // navigate to home page
+                        localStorage.setItem('token', JSON.stringify(token))
+                        navigate("/main")
+                    })
+                    .catch((error) => {
+                        // Error retrieving the token
+                        console.error('Error retrieving user token:', error);
+                    });
+            })
+            .catch((error) => {
+                // Error signing in anonymously
+                console.error('Error signing in anonymously:', error);
+            });
     }
 
-    function handleInfo(event: any) {
-        console.log(auth.currentUser)
-    }
-
-    function handlClickIsAnonymous(event: any) {
-        console.log(auth.currentUser?.isAnonymous)
-        if (auth.currentUser?.isAnonymous) {
-            alert('Sign in to access this lesson')
-        } else {
-            alert('Here is your lesson!')
-            // navigate('/lesson')
-        }
-    }
-
-    const lessonStyle = {
-        color: auth.currentUser?.isAnonymous ? '#fff' : '#000',
-        backgroundColor: auth.currentUser?.isAnonymous ? '#000' : '#fff'
-    };
 
     return (
-        <div>
-            <nav>
-                <p>Welcome Home</p>
-                <div>
-                    <button onClick={handleLogout}>Logout</button>
-                    <button onClick={handleInfo}>User Info</button>
+        <div className="front-page">
+            <nav className='nav-bar'>
+                <div className='logo'>
+                    <h1>Gogo Lingua</h1>
                 </div>
+                <ul className="nav-links">
+                    <NavLink className="nav-link" to="/home"> Home </NavLink>
+                    <NavLink className="nav-link" to="/signup"> SignUp </NavLink>
+                    <NavLink className="nav-link" to="/login"> Login </NavLink>
+                </ul>
             </nav>
+            <main className="main">
+                <img
+                    className="main-img"
+                    src={working}
+                    alt="working" />
+                <div className="main-content">
+                    <h1 className='title'>Learn a new language</h1>
+                    <h3 className='title'>with Gogo Lingua</h3>
+                </div>
+                <button
+                    className='btn'
+                    onClick={handleClickAsGuest}
+                >
+                    Get Started
+                </button>
+            </main>
 
-            <div className='lesson-container'>
-                <div
-                    // onClick={handlClick}
-                    // style={lessonStyle}
-                    className='lesson one'>
-                    Lesson 1</div>
-                <div
-                    // onClick={handlClick}
-                    // style={lessonStyle}
-                    className='lesson two'
-                >Lesson 2</div>
-                <div
-                    onClick={handlClickIsAnonymous}
-                    style={lessonStyle}
-                    className='lesson three'
-                >Lesson 3</div>
-                <div
-                    onClick={handlClickIsAnonymous}
-                    style={lessonStyle}
-                    className='lesson four'>
-                    Lesson 4</div>
-                <div
-                    onClick={handlClickIsAnonymous}
-                    style={lessonStyle}
-                    className='lesson five'>
-                    Lesson 5</div>
-                <div
-                    onClick={handlClickIsAnonymous}
-                    style={lessonStyle}
-                    className='lesson six'>L
-                    esson 6</div>
-                <div
-                    onClick={handlClickIsAnonymous}
-                    style={lessonStyle}
-                    className='lesson seven'
-                >Lesson 7</div>
-            </div>
         </div>
     )
 }
 
-export default Home;
+export default FrontPage
