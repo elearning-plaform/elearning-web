@@ -36,7 +36,11 @@ const FrontPage = () => {
 
     return (
         <div>
-
+                <NavLink to="/forgot-password">Forgot password?</NavLink>
+                <br />
+                <NavLink to="/login">Login</NavLink>
+                <br />
+                <NavLink to="/signup">Sign Up</NavLink>
         </div>
     )
 }
