@@ -43,7 +43,7 @@ const Home = () => {
                 <div className='front-page-info'>
                     <h1
                         className='front-page-title'
-                    >Gogo Lingua</h1>
+                    >gogo lingua</h1>
                     <p
                         className='front-page-text'
                     >
