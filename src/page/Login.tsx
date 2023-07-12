@@ -73,31 +73,31 @@ const Login = () => {
 
     }
 
-    function handleClickAsGuest(event: any) {
-        console.log("Login as Guest")
+    // function handleClickAsGuest(event: any) {
+    //     console.log("Login as Guest")
 
-        signInAnonymously(auth)
-            .then((userCredential) => {
-                // The user is signed in anonymously
-                // Retrieve the user's token
-                const user = userCredential.user;
-                user.getIdToken()
-                    .then((token) => {
-                        // Token retrieved successfully
-                        // navigate to home page
-                        localStorage.setItem('token', JSON.stringify(token))
-                        navigate("/main")
-                    })
-                    .catch((error) => {
-                        // Error retrieving the token
-                        console.error('Error retrieving user token:', error);
-                    });
-            })
-            .catch((error) => {
-                // Error signing in anonymously
-                console.error('Error signing in anonymously:', error);
-            });
-    }
+    //     signInAnonymously(auth)
+    //         .then((userCredential) => {
+    //             // The user is signed in anonymously
+    //             // Retrieve the user's token
+    //             const user = userCredential.user;
+    //             user.getIdToken()
+    //                 .then((token) => {
+    //                     // Token retrieved successfully
+    //                     // navigate to home page
+    //                     localStorage.setItem('token', JSON.stringify(token))
+    //                     navigate("/main")
+    //                 })
+    //                 .catch((error) => {
+    //                     // Error retrieving the token
+    //                     console.error('Error retrieving user token:', error);
+    //                 });
+    //         })
+    //         .catch((error) => {
+    //             // Error signing in anonymously
+    //             console.error('Error signing in anonymously:', error);
+    //         });
+    // }
 
     return (
         <div className="form-container">
@@ -133,17 +133,21 @@ const Login = () => {
                         onClick={togglePasswordVisibility}
                     />
                 </div>
+                <NavLink 
+                className='forgot-password'
+                to="/forgot-password"
+                >Forgot password?</NavLink>
                 <button
                     className="form-submit"
                     onClick={onLogin}
                 > Login
                 </button>
-                <div
+                {/* <div
                     className="form-submit guest"
                     onClick={handleClickAsGuest}
                 > Login as Guest
-                </div>
-                <p><NavLink to="/forgot-password">Forgot password?</NavLink></p>
+                </div> */}
+                {/* <p><NavLink to="/forgot-password">Forgot password?</NavLink></p> */}
             </form>
 
             <p className="signin-link">No account yet?
