@@ -11,18 +11,28 @@
 }
 
 .container-home {
+    max-width: 1800px;
+    width: 100%;
+    padding: 50px;
     display: flex;
-    width: 95vw;
-    height: 95vh;
     background: var(--white);
     justify-content: center;
     align-items: center;
-    gap: 10vw;
     box-shadow: 0 0 10px var(--gray);
+
+    @media (max-width: 450px) {
+        flex-direction: column;
+        padding: 10px;
+    }
 }
 
 .front-page-icons {
-    width: 40vw;
+    max-width: 800px;
+    width: 50%;
+
+    @media (max-width: 450px) {
+        width: 90%;
+    }
 
     // border: 1px solid var(--silver);
 
@@ -44,41 +54,63 @@
 }
 
 .front-page-info {
-    margin-right: 6vw;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    width: 50%;
+    margin-left: 50px;
+    // border: 1px solid var(--silver);
+
+    @media (max-width: 450px) {
+        width: 90%;
+        margin-left: 0;
+        text-align: center;
+    }
 }
 
 .front-page-title {
-    font-size: 2.8vw;
+    font-size: 2.5vw;
     color: rgb(242, 0, 0);
     font-family: var(--typeface-inter);
-    margin-bottom: 4vw;
+    margin-bottom: 30px;
+
+    @media (max-width: 450px) {
+        font-size: (2.5vw)*2;
+    }
 }
 
 .front-page-text {
-    font-size: 1.5vw;
     color: #0a619c;
-    font-weight: bold;
-    max-width: 20vw;
-    margin-bottom: 2vw;
+    font-size: 1.5vw;
+    margin-bottom: 20px;
+
+    @media (max-width: 450px) {
+        font-size: (1.5vw)*2;
+    }
 }
 
 .front-page-title-2 {
     color: #004775;
     font-size: 1.8vw;
-    font-family: var(--typeface-inter);
-    margin-bottom: 1.3vw;
+    margin-bottom: 10px;
+
+    @media (max-width: 450px) {
+        font-size: (1.8vw)*2;
+    }
 }
 
 .front-page-buttons {
     display: flex;
     flex-direction: column;
-    width: 20vw;
-    gap: 1vw;
+    font-size: 1.2vw;
+
+    @media (max-width: 450px) {
+        font-size: (1.2vw)*2;
+    }
 
     .front-page-button {
         padding-top: 10px;
         padding-bottom: 10px;
-        font-size: 1.3vw;
         font-weight: bold;
         border-radius: 10px;
         border: 2px solid #004775;
@@ -86,6 +118,7 @@
         background: var(--white);
         text-decoration: none;
         text-align: center;
+        margin-bottom: 2px;
 
         &:hover {
             background: #44b4ff;
@@ -93,110 +126,11 @@
             border: 2px solid var(--white);
             cursor: pointer;
         }
-    }
-}
 
-@media (max-width: 1200px) {
-    .container-home {
-        flex-direction: column;
-    }
-
-    .front-page-info {
-        margin-right: 0;
-    }
-
-    .front-page-buttons .front-page-button {
-        padding-top: 3px;
-        padding-bottom: 3px;
-    }
-
-    .front-page-icons {
-        width: 50%;
-    }
-
-    .front-page-title {
-        font-size: (2.8vw)*1.5;
-    }
-
-    .front-page-text {
-        font-size: (1.5vw)*1.5;
-        max-width: (20vw)*1.5;
-    }
-
-    .front-page-title-2 {
-        font-size: (1.8vw)*1.5;
-    }
-
-    .front-page-buttons {
-        width: (20vw)*1.5;
-        gap: (1vw)*1;
-
-        .front-page-button {
-            padding-top: (10px)*1.5;
-            padding-bottom: (10px)*1.5;
-            font-size: (1.3vw)*1.5;
+        @media (max-width: 450px) {
+            font-size: (1.2vw)*2;
+            margin-bottom: 10px;
+            border: 1px solid #004775;
         }
     }
-
-}
-
-@media (max-width: 650px) {
-
-    .container-home {
-        flex-direction: column;
-    }
-
-    .front-page-info {
-        margin-right: 0;
-    }
-
-    .front-page-buttons .front-page-button {
-        padding-top: 3px;
-        padding-bottom: 3px;
-    }
-
-    .front-page-icons {
-        width: 100%;
-    }
-
-    .front-page-title {
-        font-size: (2.8vw)*3;
-    }
-
-    .front-page-text {
-        font-size: (1.5vw)*3;
-        max-width: (20vw)*3;
-    }
-
-    .front-page-title-2 {
-        font-size: (1.8vw)*3;
-    }
-
-    .front-page-buttons {
-        width: (20vw)*3;
-        gap: (1vw)*2;
-
-        .front-page-button {
-            padding-top: (10px)*2;
-            padding-bottom: (10px)*2;
-            font-size: (1.3vw)*3;
-        }
-    }
-}
-
-@media (max-width: 450px) {
-    .home-page {
-        height: 100%;
-        padding: 0;
-    }
-
-    .container-home {
-        width: 100vw;
-        height: 130vh;
-    }
-
-    .front-page-icons {
-        width: 80%;
-    }
-
 }
