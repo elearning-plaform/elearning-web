@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/elearning-web/static/css/main.5f6f9876.css",
+    "main.css": "/elearning-web/static/css/main.f71f0ab0.css",
     "main.js": "/elearning-web/static/js/main.f834e159.js",
     "static/media/WLP_Alternative Background_small.png": "/elearning-web/static/media/WLP_Alternative Background_small.1c66d7b820faeabc4c51.png",
     "static/media/eye-svgrepo-com.svg": "/elearning-web/static/media/eye-svgrepo-com.a6b9dd4c404a889007bd40a2b6a6b2b0.svg",
     "index.html": "/elearning-web/index.html",
-    "main.5f6f9876.css.map": "/elearning-web/static/css/main.5f6f9876.css.map",
+    "main.f71f0ab0.css.map": "/elearning-web/static/css/main.f71f0ab0.css.map",
     "main.f834e159.js.map": "/elearning-web/static/js/main.f834e159.js.map"
   },
   "entrypoints": [
-    "static/css/main.5f6f9876.css",
+    "static/css/main.f71f0ab0.css",
     "static/js/main.f834e159.js"
   ]
 }
