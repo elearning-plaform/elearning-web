@@ -15,8 +15,29 @@
     position: relative;
     padding: 32px;
     width: 100%;
-    max-width: 600px;
-    background-color: var(--white);
+    max-width: 300px;
+
+    background-color: rgb(251, 229, 183);
+    border-radius: 20px;
+    border: 3px solid rgb(255, 187, 40);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.popup-inner > button {
+    background-color: rgb(251, 229, 183);
+    padding: 10px;
+    border: 3px solid rgb(255, 187, 40);
+    border-radius: 10px;
+    color: rgb(209, 143, 0);
+    font-weight: bold;
+    font-size: 1.2rem;
+
+    &:hover {
+        background-color: rgb(255, 187, 40);
+        color: rgb(251, 229, 183);
+    }
 }
 
 .popup-inner .close-btn {

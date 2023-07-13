@@ -85,7 +85,7 @@ const Home = () => {
         toast.success('Here is your lesson!')
         // navigate('/lesson')
         setButtonPopup(true)
-        
+
     }
 
 
@@ -94,7 +94,12 @@ const Home = () => {
         <div>
             <Toaster />
             <PopupLesson trigger={buttonPopup} setTrigger={setButtonPopup}>
-                <h3>popup</h3>
+                <button
+                    onClick={() => console.log('read')}
+                >Read</button>
+                <button
+                    onClick={() => console.log('practice')}
+                >Practice</button>
             </PopupLesson>
 
             <div className='main-container'>
