@@ -95,10 +95,10 @@ const Home = () => {
             <Toaster />
             <PopupLesson trigger={buttonPopup} setTrigger={setButtonPopup}>
                 <button
-                    onClick={() => console.log('read')}
+                    onClick={() => toast.success('read')}
                 >Read</button>
                 <button
-                    onClick={() => console.log('practice')}
+                    onClick={() => toast.success('practice')}
                 >Practice</button>
             </PopupLesson>
 
