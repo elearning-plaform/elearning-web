@@ -94,6 +94,16 @@ body {
     width: 100%;
 }
 
+.forgot-password {
+    text-align: start;
+    margin-top: -10px;
+    margin-left: 30px;
+    font-size: 0.9rem;
+    color: var(--gray);
+    cursor: pointer;
+    text-decoration: none;
+}
+
 .form-password {
     width: 94%;
 }
