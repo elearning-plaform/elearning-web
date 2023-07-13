@@ -10,21 +10,23 @@ const Home = () => {
     const [isAnonymous, setIsAnonymous] = useState(false);
 
     // AUTH STATE CHANGE
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-            if (user.isAnonymous) {
-                // User is signed in anonymously.
-                console.log("User is signed in anonymously.");
-                setIsAnonymous(true);
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                if (user.isAnonymous) {
+                    // User is signed in anonymously.
+                    console.log("User is signed in anonymously.");
+                    setIsAnonymous(true);
+                } else {
+                    // User is signed in with a regular account.
+                    console.log("User is signed in with a regular account.");
+                }
             } else {
-                // User is signed in with a regular account.
-                console.log("User is signed in with a regular account.");
+                // User is signed out.
+                console.log("User is signed out.");
             }
-        } else {
-            // User is signed out.
-            console.log("User is signed out.");
-        }
-    });
+        });
+    }, []);
 
     // KEEP USER LOGGED IN
     useEffect(() => {
