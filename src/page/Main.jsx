@@ -2,7 +2,7 @@ import '../assets/sass/Main.scss'
 import { useEffect, useState } from 'react'
 import { onAuthStateChanged, signOut } from "firebase/auth"
 import { auth } from '../firebase'
-import { useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast'
 import padlock from '../assets/images/padlock.png';
 import unlocked from '../assets/images/unlock.png';
@@ -12,6 +12,7 @@ const Home = () => {
     const navigate = useNavigate();
     const [isAnonymous, setIsAnonymous] = useState(false);
     const [buttonPopup, setButtonPopup] = useState(false);
+    const [popupIsAnonymous, setPopupIsAnonymous] = useState(false);
 
     // AUTH STATE CHANGE
     useEffect(() => {
@@ -75,16 +76,18 @@ const Home = () => {
         // console.log(auth.currentUser?.isAnonymous)
         if (isAnonymous) {
             toast.error('Sign in to access this lesson')
+            setPopupIsAnonymous(true)
         } else {
             toast.success('Here is your lesson!')
+            setButtonPopup(true)
             // navigate('/lesson')
         }
     }
 
     function freeLesson() {
         toast.success('Here is your lesson!')
-        // navigate('/lesson')
         setButtonPopup(true)
+        // navigate('/lesson')
 
     }
 
@@ -100,6 +103,11 @@ const Home = () => {
                 <button
                     onClick={() => toast.success('practice')}
                 >Practice</button>
+            </PopupLesson>
+            <PopupLesson trigger={popupIsAnonymous} setTrigger={setPopupIsAnonymous}>
+                <button>
+                    <NavLink style={{ textDecoration: 'none', color: 'rgb(209, 143, 0)' }} to="/signup">CREATE YOUR PROFILE</NavLink>
+                </button>
             </PopupLesson>
 
             <div className='main-container'>
