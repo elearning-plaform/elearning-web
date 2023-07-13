@@ -1,6 +1,9 @@
 import '../assets/sass/Login.scss'
 import { useState } from 'react'
-import { signInWithEmailAndPassword, signInAnonymously } from 'firebase/auth'
+import { 
+    signInWithEmailAndPassword, 
+    // signInAnonymously 
+} from 'firebase/auth'
 import { auth } from '../firebase'
 import { NavLink, useNavigate } from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast';
