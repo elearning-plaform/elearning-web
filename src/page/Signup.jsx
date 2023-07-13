@@ -5,6 +5,7 @@ import { auth } from '../firebase';
 import toast, { Toaster } from 'react-hot-toast';
 import eye from '../assets/images/eye-svgrepo-com.svg';
 import emailjs from '@emailjs/browser';
+import back from '../assets/images/previous.png';
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -100,7 +101,9 @@ const Signup = () => {
     return (
         <div className="form-container">
             <Toaster />
-            <NavLink className="nav-link-home" to="/home"> Home </NavLink>
+            <NavLink className="nav-link-home" to="/home">
+                <img className="home-btn" src={back} alt="back to home btn" />
+            </NavLink>
 
             <form
                 ref={form}
