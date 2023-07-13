@@ -6,10 +6,12 @@ import { useNavigate } from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast'
 import padlock from '../assets/images/padlock.png';
 import unlocked from '../assets/images/unlock.png';
+import PopupLesson from '../components/PopupLesson'
 
 const Home = () => {
     const navigate = useNavigate();
     const [isAnonymous, setIsAnonymous] = useState(false);
+    const [buttonPopup, setButtonPopup] = useState(false);
 
     // AUTH STATE CHANGE
     useEffect(() => {
@@ -52,7 +54,7 @@ const Home = () => {
         })
     }
 
-    function handleInfo(event: any) {
+    function handleInfo() {
         console.log(auth.currentUser)
     }
 
@@ -82,6 +84,8 @@ const Home = () => {
     function freeLesson() {
         toast.success('Here is your lesson!')
         // navigate('/lesson')
+        setButtonPopup(true)
+
     }
 
 
@@ -89,9 +93,14 @@ const Home = () => {
     return (
         <div>
             <Toaster />
-            {/* <nav className='nav-bar'>
-
-            </nav> */}
+            <PopupLesson trigger={buttonPopup} setTrigger={setButtonPopup}>
+                <button
+                    onClick={() => toast.success('read')}
+                >Read</button>
+                <button
+                    onClick={() => toast.success('practice')}
+                >Practice</button>
+            </PopupLesson>
 
             <div className='main-container'>
                 <div className='left-side'>
