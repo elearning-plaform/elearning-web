@@ -4,6 +4,7 @@ import { sendPasswordResetEmail } from 'firebase/auth'
 import { auth } from '../firebase'
 import { NavLink, useNavigate } from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast';
+import back from '../assets/images/previous.png';
 
 const ForgotPassword = () => {
     const navigate = useNavigate()
@@ -44,7 +45,9 @@ const ForgotPassword = () => {
     return (
         <div className="form-container">
             <Toaster />
-            <NavLink className="nav-link-home" to="/home"> Home </NavLink>
+            <NavLink className="nav-link-home" to="/home">
+                <img className="home-btn" src={back} alt="back to home btn" />
+            </NavLink>
 
             <form className="form">
                 <h2>Password Reset</h2>

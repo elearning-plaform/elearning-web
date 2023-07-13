@@ -8,6 +8,7 @@ import { auth } from '../firebase'
 import { NavLink, useNavigate } from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast';
 import eye from '../assets/images/eye-svgrepo-com.svg';
+import back from '../assets/images/previous.png';
 
 const Login = () => {
     const navigate = useNavigate()
@@ -105,7 +106,9 @@ const Login = () => {
     return (
         <div className="form-container">
             <Toaster />
-            <NavLink className="nav-link-home" to="/home"> Home </NavLink>
+            <NavLink className="nav-link-home" to="/home">
+                <img className="home-btn" src={back} alt="back to home btn" />
+            </NavLink>
 
             <form className="form">
                 <h2>Login</h2>
