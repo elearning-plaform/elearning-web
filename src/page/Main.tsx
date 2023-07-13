@@ -4,6 +4,8 @@ import { onAuthStateChanged, signOut } from "firebase/auth"
 import { auth } from '../firebase'
 import { useNavigate } from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast'
+import padlock from '../assets/images/padlock.png';
+import unlocked from '../assets/images/unlock.png';
 
 const Home = () => {
     const navigate = useNavigate();
@@ -55,16 +57,21 @@ const Home = () => {
     }
 
     const lessonStyle = {
-        color: auth.currentUser?.isAnonymous ? '#fff' : '#000',
-        backgroundColor: auth.currentUser?.isAnonymous ? '#0000003b' : '#fff',
-        cursor: auth.currentUser?.isAnonymous ? 'not-allowed' : 'pointer',
-        border: auth.currentUser?.isAnonymous ? 'none' : '1px solid #000',
+        color: isAnonymous ? '#fff' : '#000',
+        backgroundColor: isAnonymous ? '#0000003b' : '#fff',
+        cursor: isAnonymous ? 'not-allowed' : 'pointer',
+        border: isAnonymous ? 'none' : '1px solid #000',
         // className: auth.currentUser?.isAnonymous ? 'my-class' : undefined,
     }
 
+    const headerStyle = {
+        // color: isAnonymous ? '#fff' : '#000',
+        background: isAnonymous ? '#0000003b' : '',
+    }
+
     function handlClickIsAnonymous() {
-        console.log(auth.currentUser?.isAnonymous)
-        if (auth.currentUser?.isAnonymous) {
+        // console.log(auth.currentUser?.isAnonymous)
+        if (isAnonymous) {
             toast.error('Sign in to access this lesson')
         } else {
             toast.success('Here is your lesson!')
@@ -82,23 +89,22 @@ const Home = () => {
     return (
         <div>
             <Toaster />
-            <nav className='nav-bar'>
-                <h1>Gogo Lingua</h1>
-                <button
-                    className="nav-link"
-                    onClick={handleLogout}
-                > Logout </button>
-                <button
-                    className="welcome"
-                    onClick={handleInfo}
-                > User Info (Debug)
-                </button>
-            </nav>
+            {/* <nav className='nav-bar'>
+
+            </nav> */}
 
             <div className='main-container'>
-                <div
-                    className='left-side'
-                ></div>
+                <div className='left-side'>
+                    <button
+                        className="nav-link"
+                        onClick={handleLogout}
+                    > Logout </button>
+                    <button
+                        className="welcome"
+                        onClick={handleInfo}
+                    > User Info (Debug)
+                    </button>
+                </div>
 
                 <div className='central'>
 
@@ -112,9 +118,11 @@ const Home = () => {
                             <div
                                 onClick={freeLesson}
                                 className='lesson one'
-                            ><div
-                                className='progress-bar'
                             >
+                                <img className="lock" src={unlocked} alt="padlock" />
+                                <div
+                                    className='progress-bar'
+                                >
                                 </div>
                             </div>
                             <p className='lesson-title'>Lesson</p>
@@ -123,12 +131,12 @@ const Home = () => {
                         {/* LESSON TWO */}
                         <div className='container-lesson'>
                             <div
-                                onClick={freeLesson}
+                                onClick={handlClickIsAnonymous}
+                                style={lessonStyle}
                                 className='lesson two'
-                            ><div
-                                className='progress-bar'
                             >
-                                </div>
+                                <img className="lock" src={isAnonymous ? padlock : unlocked} alt="padlock" />
+                                <div className='progress-bar'></div>
                             </div>
                             <p className='lesson-title'>Lesson</p>
                         </div>
@@ -140,7 +148,8 @@ const Home = () => {
                                 style={lessonStyle}
                                 className='lesson three'
                             >
-                                {!isAnonymous && (<div className='progress-bar'></div>)}
+                                <img className="lock" src={isAnonymous ? padlock : unlocked} alt="padlock" />
+                                <div className='progress-bar'></div>
                             </div>
                             <p className='lesson-title'>Lesson</p>
                         </div>
@@ -152,7 +161,8 @@ const Home = () => {
                                 style={lessonStyle}
                                 className='lesson four'
                             >
-                                {!isAnonymous && (<div className='progress-bar'></div>)}
+                                <img className="lock" src={isAnonymous ? padlock : unlocked} alt="padlock" />
+                                <div className='progress-bar'></div>
                             </div>
                             <p className='lesson-title'>Lesson</p>
                         </div>
@@ -164,7 +174,8 @@ const Home = () => {
                                 style={lessonStyle}
                                 className='lesson four'
                             >
-                                {!isAnonymous && (<div className='progress-bar'></div>)}
+                                <img className="lock" src={isAnonymous ? padlock : unlocked} alt="padlock" />
+                                <div className='progress-bar'></div>
                             </div>
                             <p className='lesson-title'>Lesson</p>
                         </div>
@@ -176,7 +187,8 @@ const Home = () => {
                                 style={lessonStyle}
                                 className='lesson four'
                             >
-                                {!isAnonymous && (<div className='progress-bar'></div>)}
+                                <img className="lock" src={isAnonymous ? padlock : unlocked} alt="padlock" />
+                                <div className='progress-bar'></div>
                             </div>
                             <p className='lesson-title'>Lesson</p>
                         </div>
@@ -188,7 +200,8 @@ const Home = () => {
                                 style={lessonStyle}
                                 className='lesson four'
                             >
-                                {!isAnonymous && (<div className='progress-bar'></div>)}
+                                <img className="lock" src={isAnonymous ? padlock : unlocked} alt="padlock" />
+                                <div className='progress-bar'></div>
                             </div>
                             <p className='lesson-title'>Lesson</p>
                         </div>
@@ -200,7 +213,8 @@ const Home = () => {
                                 style={lessonStyle}
                                 className='lesson four'
                             >
-                                {!isAnonymous && (<div className='progress-bar'></div>)}
+                                <img className="lock" src={isAnonymous ? padlock : unlocked} alt="padlock" />
+                                <div className='progress-bar'></div>
                             </div>
                             <p className='lesson-title'>Lesson</p>
                         </div>
@@ -212,7 +226,8 @@ const Home = () => {
                                 style={lessonStyle}
                                 className='lesson four'
                             >
-                                {!isAnonymous && (<div className='progress-bar'></div>)}
+                                <img className="lock" src={isAnonymous ? padlock : unlocked} alt="padlock" />
+                                <div className='progress-bar'></div>
                             </div>
                             <p className='lesson-title'>Lesson</p>
                         </div>
@@ -221,7 +236,7 @@ const Home = () => {
 
 
 
-                    <div className='header-advanced'>
+                    <div className='header-advanced' style={headerStyle}>
                         <h1>ADVENCED</h1>
                     </div>
                     <div className='container-lessons'>
@@ -229,12 +244,12 @@ const Home = () => {
                         {/* LESSON ONE */}
                         <div className='container-lesson'>
                             <div
-                                onClick={freeLesson}
+                                onClick={handlClickIsAnonymous}
+                                style={lessonStyle}
                                 className='lesson one'
-                            ><div
-                                className='progress-bar'
                             >
-                                </div>
+                                <img className="lock" src={isAnonymous ? padlock : unlocked} alt="padlock" />
+                                <div className='progress-bar'></div>
                             </div>
                             <p className='lesson-title'>Lesson</p>
                         </div>
@@ -242,12 +257,12 @@ const Home = () => {
                         {/* LESSON TWO */}
                         <div className='container-lesson'>
                             <div
-                                onClick={freeLesson}
+                                onClick={handlClickIsAnonymous}
+                                style={lessonStyle}
                                 className='lesson two'
-                            ><div
-                                className='progress-bar'
                             >
-                                </div>
+                                <img className="lock" src={isAnonymous ? padlock : unlocked} alt="padlock" />
+                                <div className='progress-bar'></div>
                             </div>
                             <p className='lesson-title'>Lesson</p>
                         </div>
@@ -259,7 +274,8 @@ const Home = () => {
                                 style={lessonStyle}
                                 className='lesson three'
                             >
-                                {!isAnonymous && (<div className='progress-bar'></div>)}
+                                <img className="lock" src={isAnonymous ? padlock : unlocked} alt="padlock" />
+                                <div className='progress-bar'></div>
                             </div>
                             <p className='lesson-title'>Lesson</p>
                         </div>
@@ -271,7 +287,8 @@ const Home = () => {
                                 style={lessonStyle}
                                 className='lesson four'
                             >
-                                {!isAnonymous && (<div className='progress-bar'></div>)}
+                                <img className="lock" src={isAnonymous ? padlock : unlocked} alt="padlock" />
+                                <div className='progress-bar'></div>
                             </div>
                             <p className='lesson-title'>Lesson</p>
                         </div>
@@ -283,7 +300,8 @@ const Home = () => {
                                 style={lessonStyle}
                                 className='lesson four'
                             >
-                                {!isAnonymous && (<div className='progress-bar'></div>)}
+                                <img className="lock" src={isAnonymous ? padlock : unlocked} alt="padlock" />
+                                <div className='progress-bar'></div>
                             </div>
                             <p className='lesson-title'>Lesson</p>
                         </div>
@@ -295,7 +313,8 @@ const Home = () => {
                                 style={lessonStyle}
                                 className='lesson four'
                             >
-                                {!isAnonymous && (<div className='progress-bar'></div>)}
+                                <img className="lock" src={isAnonymous ? padlock : unlocked} alt="padlock" />
+                                <div className='progress-bar'></div>
                             </div>
                             <p className='lesson-title'>Lesson</p>
                         </div>
@@ -307,7 +326,8 @@ const Home = () => {
                                 style={lessonStyle}
                                 className='lesson four'
                             >
-                                {!isAnonymous && (<div className='progress-bar'></div>)}
+                                <img className="lock" src={isAnonymous ? padlock : unlocked} alt="padlock" />
+                                <div className='progress-bar'></div>
                             </div>
                             <p className='lesson-title'>Lesson</p>
                         </div>
@@ -319,7 +339,8 @@ const Home = () => {
                                 style={lessonStyle}
                                 className='lesson four'
                             >
-                                {!isAnonymous && (<div className='progress-bar'></div>)}
+                                <img className="lock" src={isAnonymous ? padlock : unlocked} alt="padlock" />
+                                <div className='progress-bar'></div>
                             </div>
                             <p className='lesson-title'>Lesson</p>
                         </div>
@@ -331,7 +352,8 @@ const Home = () => {
                                 style={lessonStyle}
                                 className='lesson four'
                             >
-                                {!isAnonymous && (<div className='progress-bar'></div>)}
+                                <img className="lock" src={isAnonymous ? padlock : unlocked} alt="padlock" />
+                                <div className='progress-bar'></div>
                             </div>
                             <p className='lesson-title'>Lesson</p>
                         </div>
@@ -339,7 +361,7 @@ const Home = () => {
 
 
 
-                    <div className='header-pro'>
+                    <div className='header-pro' style={headerStyle}>
                         <h1>PRO</h1>
                     </div>
                     <div className='container-lessons'>
@@ -347,12 +369,12 @@ const Home = () => {
                         {/* LESSON ONE */}
                         <div className='container-lesson'>
                             <div
-                                onClick={freeLesson}
+                                onClick={handlClickIsAnonymous}
+                                style={lessonStyle}
                                 className='lesson one'
-                            ><div
-                                className='progress-bar'
                             >
-                                </div>
+                                <img className="lock" src={isAnonymous ? padlock : unlocked} alt="padlock" />
+                                <div className='progress-bar'></div>
                             </div>
                             <p className='lesson-title'>Lesson</p>
                         </div>
@@ -360,12 +382,12 @@ const Home = () => {
                         {/* LESSON TWO */}
                         <div className='container-lesson'>
                             <div
-                                onClick={freeLesson}
+                                onClick={handlClickIsAnonymous}
+                                style={lessonStyle}
                                 className='lesson two'
-                            ><div
-                                className='progress-bar'
                             >
-                                </div>
+                                <img className="lock" src={isAnonymous ? padlock : unlocked} alt="padlock" />
+                                <div className='progress-bar'></div>
                             </div>
                             <p className='lesson-title'>Lesson</p>
                         </div>
@@ -377,7 +399,8 @@ const Home = () => {
                                 style={lessonStyle}
                                 className='lesson three'
                             >
-                                {!isAnonymous && (<div className='progress-bar'></div>)}
+                                <img className="lock" src={isAnonymous ? padlock : unlocked} alt="padlock" />
+                                <div className='progress-bar'></div>
                             </div>
                             <p className='lesson-title'>Lesson</p>
                         </div>
@@ -389,7 +412,8 @@ const Home = () => {
                                 style={lessonStyle}
                                 className='lesson four'
                             >
-                                {!isAnonymous && (<div className='progress-bar'></div>)}
+                                <img className="lock" src={isAnonymous ? padlock : unlocked} alt="padlock" />
+                                <div className='progress-bar'></div>
                             </div>
                             <p className='lesson-title'>Lesson</p>
                         </div>
@@ -401,7 +425,8 @@ const Home = () => {
                                 style={lessonStyle}
                                 className='lesson four'
                             >
-                                {!isAnonymous && (<div className='progress-bar'></div>)}
+                                <img className="lock" src={isAnonymous ? padlock : unlocked} alt="padlock" />
+                                <div className='progress-bar'></div>
                             </div>
                             <p className='lesson-title'>Lesson</p>
                         </div>
@@ -413,7 +438,8 @@ const Home = () => {
                                 style={lessonStyle}
                                 className='lesson four'
                             >
-                                {!isAnonymous && (<div className='progress-bar'></div>)}
+                                <img className="lock" src={isAnonymous ? padlock : unlocked} alt="padlock" />
+                                <div className='progress-bar'></div>
                             </div>
                             <p className='lesson-title'>Lesson</p>
                         </div>
@@ -425,7 +451,8 @@ const Home = () => {
                                 style={lessonStyle}
                                 className='lesson four'
                             >
-                                {!isAnonymous && (<div className='progress-bar'></div>)}
+                                <img className="lock" src={isAnonymous ? padlock : unlocked} alt="padlock" />
+                                <div className='progress-bar'></div>
                             </div>
                             <p className='lesson-title'>Lesson</p>
                         </div>
@@ -437,7 +464,8 @@ const Home = () => {
                                 style={lessonStyle}
                                 className='lesson four'
                             >
-                                {!isAnonymous && (<div className='progress-bar'></div>)}
+                                <img className="lock" src={isAnonymous ? padlock : unlocked} alt="padlock" />
+                                <div className='progress-bar'></div>
                             </div>
                             <p className='lesson-title'>Lesson</p>
                         </div>
@@ -449,7 +477,8 @@ const Home = () => {
                                 style={lessonStyle}
                                 className='lesson four'
                             >
-                                {!isAnonymous && (<div className='progress-bar'></div>)}
+                                <img className="lock" src={isAnonymous ? padlock : unlocked} alt="padlock" />
+                                <div className='progress-bar'></div>
                             </div>
                             <p className='lesson-title'>Lesson</p>
                         </div>
