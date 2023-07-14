@@ -68,7 +68,7 @@
     @media (max-width: 450px) {
         width: 90%;
         margin-left: 0;
-        text-align: center;
+        align-items: center;
     }
 }
 
@@ -76,7 +76,6 @@
     font-size: 2.5vw;
     color: rgb(242, 0, 0);
     font-family: var(--typeface-inter);
-    margin-bottom: 30px;
 
     @media (max-width: 450px) {
         font-size: (2.5vw)*2;
@@ -119,6 +118,7 @@
     display: flex;
     flex-direction: column;
     font-size: 1.2vw;
+    width: 70%;
 
     @media (max-width: 450px) {
         font-size: (1.2vw)*2;
