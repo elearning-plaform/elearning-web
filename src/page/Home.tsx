@@ -43,7 +43,7 @@ const Home = () => {
                 <div className='front-page-info'>
                     <h1
                         className='front-page-title'
-                    >language learning</h1>
+                    >Language Learning</h1>
                     <p
                         className='front-page-text'
                     >
