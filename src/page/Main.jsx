@@ -60,9 +60,9 @@ const Home = () => {
         })
     }
 
-    function handleInfo() {
-        console.log(auth.currentUser)
-    }
+    // function handleInfo() {
+    //     console.log(auth.currentUser)
+    // }
 
     const lessonStyle = {
         color: isAnonymous ? '#fff' : '#000',
@@ -103,7 +103,7 @@ const Home = () => {
         <div>
             <Toaster />
             <PopupLesson trigger={buttonPopup} setTrigger={setButtonPopup}>
-                <button onClick={() => setPopupFeaturIsUnderConstruction(true)}>Read</button>
+                <button style={{background:'gray', color:'silver', cursor:'not-allowed'}} onClick={() => setPopupFeaturIsUnderConstruction(true)}>Read</button>
                 <button onClick={() => navigate('/FindWord')}>Practice</button>
             </PopupLesson>
             <PopupLesson trigger={popupIsAnonymous} setTrigger={setPopupIsAnonymous}>
