@@ -6,6 +6,10 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast'
 import padlock from '../assets/images/padlock.png';
 import unlocked from '../assets/images/unlock.png';
+import home from '../assets/images/home.png';
+import target from '../assets/images/target.png';
+import volume from '../assets/images/volume.png';
+import flame from '../assets/images/flame.png';
 import PopupLesson from '../components/PopupLesson'
 
 const Home = () => {
@@ -13,6 +17,7 @@ const Home = () => {
     const [isAnonymous, setIsAnonymous] = useState(false);
     const [buttonPopup, setButtonPopup] = useState(false);
     const [popupIsAnonymous, setPopupIsAnonymous] = useState(false);
+    const [popupFeaturIsUnderConstruction, setPopupFeaturIsUnderConstruction] = useState(false);
 
     // AUTH STATE CHANGE
     useEffect(() => {
@@ -87,40 +92,55 @@ const Home = () => {
     function freeLesson() {
         toast.success('Here is your lesson!')
         setButtonPopup(true)
-        // navigate('/lesson')
-
+        // navigate('/FindWord')
     }
 
-
+    function handleMenuItems() {
+        setPopupFeaturIsUnderConstruction(true)
+    }
 
     return (
         <div>
             <Toaster />
             <PopupLesson trigger={buttonPopup} setTrigger={setButtonPopup}>
-                <button
-                    onClick={() => toast.success('read')}
-                >Read</button>
-                <button
-                    onClick={() => toast.success('practice')}
-                >Practice</button>
+                <button onClick={() => setPopupFeaturIsUnderConstruction(true)}>Read</button>
+                <button onClick={() => navigate('/FindWord')}>Practice</button>
             </PopupLesson>
             <PopupLesson trigger={popupIsAnonymous} setTrigger={setPopupIsAnonymous}>
                 <button>
                     <NavLink style={{ textDecoration: 'none', color: 'rgb(209, 143, 0)' }} to="/signup">CREATE YOUR PROFILE</NavLink>
                 </button>
             </PopupLesson>
+            <PopupLesson trigger={popupFeaturIsUnderConstruction} setTrigger={setPopupFeaturIsUnderConstruction}>
+                <p className='feature-is-under-construction'>FEATURE IS UNDER CONSTRUCTION</p>
+            </PopupLesson>
 
             <div className='main-container'>
-                <div className='left-side'>
-                    <button
-                        className="nav-link"
-                        onClick={handleLogout}
-                    > Logout </button>
-                    <button
-                        className="welcome"
-                        onClick={handleInfo}
-                    > User Info (Debug)
-                    </button>
+                <div className='left-side-container'>
+                    <div className='left-side-header'>
+                        <button
+                            className="nav-link"
+                            onClick={handleLogout}
+                        > Logout </button>
+                        <p className='flame-icon'>
+                            <img src={flame} alt="left side flame icon" /> 0 XP
+                        </p>
+                        {/* <button onClick={handleInfo}>User Info (Debug)</button> */}
+                    </div>
+                    <div className='left-side-menu'>
+                        <div className='menu-item' onClick={handleMenuItems}>
+                            <img src={home} alt="left side home icon" />
+                            <p>LESSONS</p>
+                        </div>
+                        <div className='menu-item' onClick={handleMenuItems}>
+                            <img src={target} alt="left side target icon" />
+                            <p>RECOMMENDATIONS</p>
+                        </div>
+                        <div className='menu-item' onClick={handleMenuItems}>
+                            <img src={volume} alt="left side volume icon" />
+                            <p>NEWS</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div className='central'>
@@ -254,7 +274,7 @@ const Home = () => {
 
 
                     <div className='header-advanced' style={headerStyle}>
-                        <h1>ADVENCED</h1>
+                        <h1>ADVANCED</h1>
                     </div>
                     <div className='container-lessons'>
 

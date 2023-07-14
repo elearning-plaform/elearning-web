@@ -5,6 +5,7 @@ import Login from './page/Login';
 import ForgotPassword from './page/ForgotPassword';
 import Home from './page/Home';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import FindWord from './page/FindWord';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/main" element={<Main />} />
+            <Route path="/FindWord" element={<FindWord />} />
           </Routes>
     </BrowserRouter>
   );
