@@ -83,14 +83,14 @@ const Home = () => {
             toast.error('Sign in to access this lesson')
             setPopupIsAnonymous(true)
         } else {
-            toast.success('Here is your lesson!')
+            // toast.success('Here is your lesson!')
             setButtonPopup(true)
             // navigate('/lesson')
         }
     }
 
     function freeLesson() {
-        toast.success('Here is your lesson!')
+        // toast.success('Here is your lesson!')
         setButtonPopup(true)
         // navigate('/FindWord')
     }
