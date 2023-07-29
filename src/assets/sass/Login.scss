@@ -26,11 +26,15 @@ body {
 
 .form-input {
     padding: 15px;
-    border: 1px solid var(--main);
+    border: 2px solid var(--silver);
     border-radius: 5px;
     margin: 15px;
-    border: none;
-    box-shadow: 0 0 1px var(--main);
+
+    &:focus {
+        outline: none;
+        // box-shadow: 0 0 5px rgb(90, 179, 231);
+        border-color: rgb(90, 179, 231);
+    }
 }
 
 .age-restrictions {
