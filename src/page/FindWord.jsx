@@ -10,7 +10,7 @@ export default function FindWord() {
     const randomButtons = buttons.sort(() => Math.random() - 0.5)
 
     const renderButtons = randomButtons.map((button, index) => {
-        return <button className='word' onClick={handleClick} name={button}>{button}</button>
+        return <button key={index} className='word' onClick={handleClick} name={button}>{button}</button>
     })
 
     useEffect(() => {
