@@ -6,6 +6,12 @@ import back from '../assets/images/previous.png'
 
 export default function FindWord() {
     const navigate = useNavigate();
+    const buttons = ['Mother', 'Month', 'Morning', 'Meta', 'Metro', 'Meteor', 'Mind', 'Math']
+    const randomButtons = buttons.sort(() => Math.random() - 0.5)
+
+    const renderButtons = randomButtons.map((button, index) => {
+        return <button className='word' onClick={handleClick} name={button}>{button}</button>
+    })
 
     useEffect(() => {
         const token = localStorage.getItem('token')
@@ -40,63 +46,7 @@ export default function FindWord() {
                 <p>Matin</p>
             </div>
             <form className="wrapper-answer" onSubmit={handleSubmit}>
-
-                <button
-                    className='word'
-                    onClick={handleClick}
-                    name='Mother'>
-                    Mother
-                </button>
-
-                <button
-                    className='word'
-                    onClick={handleClick}
-                    name='Month'>
-                    Month
-                </button>
-
-                <button
-                    className='word'
-                    onClick={handleClick}
-                    name='Morning'>
-                    Morning
-                </button>
-
-                <button
-                    className='word'
-                    onClick={handleClick}
-                    name='Meta'>
-                    Meta
-                </button>
-
-                <button
-                    className='word'
-                    onClick={handleClick}
-                    name='Metro'>
-                    Metro
-                </button>
-
-                <button
-                    className='word'
-                    onClick={handleClick}
-                    name='Meteor'>
-                    Meteor
-                </button>
-
-                <button
-                    className='word'
-                    onClick={handleClick}
-                    name='Meteor'>
-                    Mind
-                </button>
-
-                <button
-                    className='word'
-                    onClick={handleClick}
-                    name='Meteor'>
-                    Math
-                </button>
-
+                {renderButtons}
             </form>
         </div>
     )
