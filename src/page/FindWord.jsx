@@ -3,10 +3,12 @@ import { useEffect } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast'
 import back from '../assets/images/previous.png'
+import buttons from '../data/FindWordData.js'
+import lessonOne from '../data/lessonOneData.js'
 
 export default function FindWord() {
-    const navigate = useNavigate();
-    const buttons = ['Mother', 'Month', 'Morning', 'Meta', 'Metro', 'Meteor', 'Mind', 'Math']
+    const navigate = useNavigate()
+
     const randomButtons = buttons.sort(() => Math.random() - 0.5)
 
     const renderButtons = randomButtons.map((button, index) => {
@@ -30,6 +32,7 @@ export default function FindWord() {
     function handleClick(event) {
         if (event.target.name === 'Morning') {
             toast.success('Correct!')
+            lessonOne.exerciseOne.isExerciseOneCompleted = true
         } else {
             toast.error('Wrong answer. Please try again')
         }

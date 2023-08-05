@@ -144,6 +144,15 @@
     border-radius: 10px;
 }
 
+.progress-bar-filled {
+    width: 0%;
+    height: 13px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(255, 226, 164, 1);
+    box-shadow: 0 0 3px var(--main);
+}
+
 .lesson-title {
     margin-top: -20px;
     color: var(--gray);
