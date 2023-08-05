@@ -11,6 +11,7 @@ import target from '../assets/images/target.png';
 import volume from '../assets/images/volume.png';
 import flame from '../assets/images/flame.png';
 import PopupLesson from '../components/PopupLesson'
+import lessonOne from '../data/lessonOneData.js'
 
 const Home = () => {
     const navigate = useNavigate();
@@ -18,6 +19,8 @@ const Home = () => {
     const [buttonPopup, setButtonPopup] = useState(false);
     const [popupIsAnonymous, setPopupIsAnonymous] = useState(false);
     const [popupFeaturIsUnderConstruction, setPopupFeaturIsUnderConstruction] = useState(false);
+    const maxProgress = Object.keys(lessonOne).length
+    const progress = lessonOne.exerciseOne.isExerciseOneCompleted
 
     // AUTH STATE CHANGE
     useEffect(() => {
@@ -99,11 +102,13 @@ const Home = () => {
         setPopupFeaturIsUnderConstruction(true)
     }
 
+    const getPercentage = (currentProgress, maximumProgress) => (100 * currentProgress) / maximumProgress
+
     return (
         <div>
             <Toaster />
             <PopupLesson trigger={buttonPopup} setTrigger={setButtonPopup}>
-                <button style={{background:'gray', color:'silver', cursor:'not-allowed'}} onClick={() => setPopupFeaturIsUnderConstruction(true)}>Read</button>
+                <button style={{ background: 'gray', color: 'silver', cursor: 'not-allowed' }} onClick={() => setPopupFeaturIsUnderConstruction(true)}>Read</button>
                 <button onClick={() => navigate('/FindWord')}>Practice</button>
             </PopupLesson>
             <PopupLesson trigger={popupIsAnonymous} setTrigger={setPopupIsAnonymous}>
@@ -160,6 +165,7 @@ const Home = () => {
                                 <div
                                     className='progress-bar'
                                 >
+                                    <div className='progress-bar-filled' style={{ width: `${getPercentage(progress, maxProgress)}%` }}></div>
                                 </div>
                             </div>
                             <p className='lesson-title'>Lesson</p>
