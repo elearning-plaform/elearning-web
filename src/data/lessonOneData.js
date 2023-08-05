@@ -1,7 +1,8 @@
 const lessonOne = {
     exerciseOne: {
         name: 'Find Word',
-        isExerciseOneCompleted: false
+        isExerciseOneCompleted: false,
+        words: ['Mother', 'Month', 'Morning', 'Meta', 'Metro', 'Meteor', 'Mind', 'Math']
     },
     exerciseTwo: {
         name: 'Compose a Sentence',
