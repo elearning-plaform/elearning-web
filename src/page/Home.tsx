@@ -47,9 +47,7 @@ const Home = () => {
                     <p
                         className='front-page-text'
                     >
-                        Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt
+                        The free, fun, and effective way to learn a language!
                     </p>
                     <h1
                         className='front-page-title-2'
