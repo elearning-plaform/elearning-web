@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/elearning-web/static/css/main.343ac1c9.css",
-    "main.js": "/elearning-web/static/js/main.5ea462dc.js",
+    "main.css": "/elearning-web/static/css/main.dd68124a.css",
+    "main.js": "/elearning-web/static/js/main.430fcd5c.js",
     "static/media/WLP_Alternative Background_small.png": "/elearning-web/static/media/WLP_Alternative Background_small.1c66d7b820faeabc4c51.png",
     "static/media/eye-svgrepo-com.svg": "/elearning-web/static/media/eye-svgrepo-com.a6b9dd4c404a889007bd40a2b6a6b2b0.svg",
     "index.html": "/elearning-web/index.html",
-    "main.343ac1c9.css.map": "/elearning-web/static/css/main.343ac1c9.css.map",
-    "main.5ea462dc.js.map": "/elearning-web/static/js/main.5ea462dc.js.map"
+    "main.dd68124a.css.map": "/elearning-web/static/css/main.dd68124a.css.map",
+    "main.430fcd5c.js.map": "/elearning-web/static/js/main.430fcd5c.js.map"
   },
   "entrypoints": [
-    "static/css/main.343ac1c9.css",
-    "static/js/main.5ea462dc.js"
+    "static/css/main.dd68124a.css",
+    "static/js/main.430fcd5c.js"
   ]
 }
