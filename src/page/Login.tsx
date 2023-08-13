@@ -3,9 +3,9 @@ import { useState } from 'react'
 import { signInWithEmailAndPassword, } from 'firebase/auth'
 import { auth } from '../firebase'
 import { NavLink, useNavigate } from 'react-router-dom'
-import toast, { Toaster } from 'react-hot-toast';
-import eye from '../assets/images/eye-svgrepo-com.svg';
-import back from '../assets/images/previous.png';
+import toast, { Toaster } from 'react-hot-toast'
+import eye from '../assets/images/eye-svgrepo-com.svg'
+import back from '../assets/images/previous.png'
 
 const Login = () => {
     const navigate = useNavigate()
@@ -14,11 +14,11 @@ const Login = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
 
     const togglePasswordVisibility = () => {
-        setPasswordVisible(!passwordVisible);
+        setPasswordVisible(!passwordVisible)
     };
 
     const onLogin = (e: { preventDefault: () => void; }) => {
-        e.preventDefault();
+        e.preventDefault()
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in
@@ -38,11 +38,11 @@ const Login = () => {
                             navigate("/main")
                         })
                         .catch((error) => {
-                            console.error('Error getting ID token:', error);
+                            console.error('Error getting ID token:', error)
                         });
                 } else {
                     // User is not signed in
-                    console.log('User is not signed in');
+                    console.log('User is not signed in')
                 }
             })
             .catch((error) => {
